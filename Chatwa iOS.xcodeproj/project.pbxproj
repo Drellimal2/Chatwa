@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D02431EDF246D00C3765E /* GameViewController.swift */; };
 		8ADD89D01ED77B9C0093E432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD89CF1ED77B9C0093E432 /* AppDelegate.swift */; };
-		8ADD89D21ED77B9C0093E432 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD89D11ED77B9C0093E432 /* ViewController.swift */; };
+		8ADD89D21ED77B9C0093E432 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD89D11ED77B9C0093E432 /* HomeViewController.swift */; };
 		8ADD89D51ED77B9C0093E432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD89D31ED77B9C0093E432 /* Main.storyboard */; };
 		8ADD89D81ED77B9C0093E432 /* Chatwa_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD89D61ED77B9C0093E432 /* Chatwa_iOS.xcdatamodeld */; };
 		8ADD89DA1ED77B9C0093E432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD89D91ED77B9C0093E432 /* Assets.xcassets */; };
@@ -16,9 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A5D02431EDF246D00C3765E /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8ADD89CC1ED77B9C0093E432 /* Chatwa iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chatwa iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADD89CF1ED77B9C0093E432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8ADD89D11ED77B9C0093E432 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8ADD89D11ED77B9C0093E432 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8ADD89D41ED77B9C0093E432 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8ADD89D71ED77B9C0093E432 /* Chatwa_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chatwa_iOS.xcdatamodel; sourceTree = "<group>"; };
 		8ADD89D91ED77B9C0093E432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				8ADD89CF1ED77B9C0093E432 /* AppDelegate.swift */,
-				8ADD89D11ED77B9C0093E432 /* ViewController.swift */,
+				8ADD89D11ED77B9C0093E432 /* HomeViewController.swift */,
+				8A5D02431EDF246D00C3765E /* GameViewController.swift */,
 				8ADD89D31ED77B9C0093E432 /* Main.storyboard */,
 				8ADD89D91ED77B9C0093E432 /* Assets.xcassets */,
 				8ADD89DB1ED77B9C0093E432 /* LaunchScreen.storyboard */,
@@ -140,8 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */,
 				8ADD89D81ED77B9C0093E432 /* Chatwa_iOS.xcdatamodeld in Sources */,
-				8ADD89D21ED77B9C0093E432 /* ViewController.swift in Sources */,
+				8ADD89D21ED77B9C0093E432 /* HomeViewController.swift in Sources */,
 				8ADD89D01ED77B9C0093E432 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +312,7 @@
 				8ADD89E31ED77B9C0093E432 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
