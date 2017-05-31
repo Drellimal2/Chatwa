@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Chatwa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,71 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chatwa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYb-Kf-ok2">
+                                <rect key="frame" x="94.5" y="151.5" width="186" height="80"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="56"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-Fb-yLB">
+                                <rect key="frame" x="122" y="479" width="130" height="35"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.78823529411764703" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="BQ3-Wt-1tS">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="130"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="35" id="CeJ-8U-yrO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <state key="normal" title="Instructions">
+                                    <color key="titleColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Jamaican Patois Guessing Game " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cay-LA-fjd">
+                                <rect key="frame" x="27.5" y="321.5" width="320" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="VgE-se-klj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ov-vI-d0Q">
+                                <rect key="frame" x="122" y="421" width="130" height="35"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                </variation>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Ov-vI-d0Q" firstAttribute="height" secondItem="ahY-Fb-yLB" secondAttribute="height" id="3Bs-aR-zLJ"/>
+                            <constraint firstItem="rYb-Kf-ok2" firstAttribute="centerX" secondItem="cay-LA-fjd" secondAttribute="centerX" id="IZl-Pg-ikG"/>
+                            <constraint firstItem="cay-LA-fjd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kec-hU-2Qc"/>
+                            <constraint firstItem="9Ov-vI-d0Q" firstAttribute="top" secondItem="cay-LA-fjd" secondAttribute="bottom" constant="75.5" id="Lwx-VD-1zf"/>
+                            <constraint firstItem="cay-LA-fjd" firstAttribute="top" secondItem="rYb-Kf-ok2" secondAttribute="bottom" constant="90" id="OAc-b2-bzu">
+                                <variation key="heightClass=compact-widthClass=compact" constant="70"/>
+                            </constraint>
+                            <constraint firstItem="cay-LA-fjd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QRG-R1-azH"/>
+                            <constraint firstItem="ahY-Fb-yLB" firstAttribute="centerX" secondItem="9Ov-vI-d0Q" secondAttribute="centerX" id="lp7-hB-rgx"/>
+                            <constraint firstItem="9Ov-vI-d0Q" firstAttribute="width" secondItem="ahY-Fb-yLB" secondAttribute="width" id="nNb-dT-66j"/>
+                            <constraint firstItem="ahY-Fb-yLB" firstAttribute="top" secondItem="9Ov-vI-d0Q" secondAttribute="bottom" constant="23" id="uAb-lW-nKq"/>
+                            <constraint firstItem="9Ov-vI-d0Q" firstAttribute="centerX" secondItem="cay-LA-fjd" secondAttribute="centerX" id="wva-sR-R4O"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
