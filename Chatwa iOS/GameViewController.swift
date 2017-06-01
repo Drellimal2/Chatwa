@@ -13,7 +13,45 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUpPattyBarButtonItem()
+        setUpTitleImageView()
+    }
+    
+    func setUpPattyBarButtonItem() {
+        let containView = UIView(frame: CGRect(x: 0, y: 0,width: 130, height: 40))
+        containView.backgroundColor = Colors.pattiesBackground
+        containView.setDefaultCornerRadius()
+        
+        let pattyImageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
+        pattyImageView.image = UIImage(named: "Patty Icon")
+        pattyImageView.contentMode = .scaleAspectFill
+        containView.addSubview(pattyImageView)
+        
+        
+        let pattyCountLabel = UILabel(frame: CGRect(x: 40, y: 0,width: 100, height: 40))
+        pattyCountLabel.text = "9999 Patties"
+        pattyCountLabel.font = UIFont(name: "Chalkboard SE", size: 14)
+        pattyCountLabel.textColor = Colors.pattiesLetterColor
+        pattyCountLabel.textAlignment = .left
+        containView.addSubview(pattyCountLabel)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: containView)
+    }
+    
+    func setUpTitleImageView() {
+        let roundView = UIView()
+        roundView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        roundView.backgroundColor = Colors.pattiesBackground
+        roundView.setCornerRadius(radius: 20)
+        
+        let roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        roundLabel.text = "999"
+        roundLabel.textAlignment = .center
+        roundLabel.font = UIFont(name: "Chalkboard SE", size: 14)
+        roundLabel.textColor = Colors.roundNumberColor
+        roundView.addSubview(roundLabel)
+        
+        self.navigationItem.titleView = roundView
     }
 
     override func didReceiveMemoryWarning() {

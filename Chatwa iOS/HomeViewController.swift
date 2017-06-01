@@ -20,6 +20,12 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func playButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: SegueIdentifiers.game, sender: self)
+    }
 
+    @IBAction func instructionsButtonClicked(_ sender: Any) {
+    }
+    
 }
 
