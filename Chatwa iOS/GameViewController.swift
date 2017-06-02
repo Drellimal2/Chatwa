@@ -9,12 +9,24 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    @IBOutlet weak var answerScrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUp() // Set up UI Elements and pre game cofiguration
+    }
+    
+    func setUp() {
         setUpPattyBarButtonItem()
         setUpTitleImageView()
+//        setUpAnswerScrollView()
+    }
+    
+    func setUpAnswerScrollView() {
+        let offsetX = max((answerScrollView.bounds.width - answerScrollView.contentSize.width) * 0.5, 0)
+        let offsetY = max((answerScrollView.bounds.height - answerScrollView.contentSize.height) * 0.5, 0)
+        self.answerScrollView.contentInset = UIEdgeInsetsMake(offsetY, offsetX, 0, 0)
     }
     
     func setUpPattyBarButtonItem() {
