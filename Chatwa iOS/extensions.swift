@@ -17,6 +17,12 @@ extension UIViewController {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func showNavigationBar(show: Bool = true) {
+        self.navigationController?.setNavigationBarHidden(!show, animated: true)
+    }
+    
+    
 
 }
 

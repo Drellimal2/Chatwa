@@ -9,28 +9,33 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    @IBOutlet weak var answerScrollView: UIScrollView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    var navigationBarHeight: CGFloat?
+    
+    override func viewWillAppear(_ animated: Bool) {
         setUp() // Set up UI Elements and pre game cofiguration
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
     func setUp() {
+        showNavigationBar()
+        navigationBarHeight = self.navigationController?.navigationBar.frame.height
         setUpPattyBarButtonItem()
         setUpTitleImageView()
-//        setUpAnswerScrollView()
     }
     
-    func setUpAnswerScrollView() {
-        let offsetX = max((answerScrollView.bounds.width - answerScrollView.contentSize.width) * 0.5, 0)
-        let offsetY = max((answerScrollView.bounds.height - answerScrollView.contentSize.height) * 0.5, 0)
-        self.answerScrollView.contentInset = UIEdgeInsetsMake(offsetY, offsetX, 0, 0)
-    }
     
     func setUpPattyBarButtonItem() {
-        let containView = UIView(frame: CGRect(x: 0, y: 0,width: 130, height: 40))
+        
+        guard let navigationBarHeight = self.navigationBarHeight else {
+            return
+        }
+        
+        let containView = UIView(frame: CGRect(x: 0, y: 0,width: 130, height: navigationBarHeight))
         containView.backgroundColor = Colors.pattiesBackground
         containView.setDefaultCornerRadius()
         
@@ -40,7 +45,7 @@ class GameViewController: UIViewController {
         containView.addSubview(pattyImageView)
         
         
-        let pattyCountLabel = UILabel(frame: CGRect(x: 40, y: 0,width: 100, height: 40))
+        let pattyCountLabel = UILabel(frame: CGRect(x: 40, y: 0,width: 100, height: navigationBarHeight))
         pattyCountLabel.text = "9999 Patties"
         pattyCountLabel.font = UIFont(name: "Chalkboard SE", size: 14)
         pattyCountLabel.textColor = Colors.pattiesLetterColor
@@ -51,12 +56,17 @@ class GameViewController: UIViewController {
     }
     
     func setUpTitleImageView() {
+        
+        guard let navigationBarHeight = self.navigationBarHeight else {
+            return
+        }
+        
         let roundView = UIView()
-        roundView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        roundView.frame = CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight)
         roundView.backgroundColor = Colors.pattiesBackground
         roundView.setCornerRadius(radius: 20)
         
-        let roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight))
         roundLabel.text = "999"
         roundLabel.textAlignment = .center
         roundLabel.font = UIFont(name: "Chalkboard SE", size: 14)
