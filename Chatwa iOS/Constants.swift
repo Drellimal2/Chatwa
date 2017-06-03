@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+struct StaticText {
+    static let instructionsTitle = "Instructions"
+    static let instructionsMessage = "Think you know your Caribbean patois? Click the letter tiles to fill the slots and guess the word based on the hint. You get a patty for every correct word and you can use patties to buy a letter. Press play to get started!"
+    static let instructionsDismissText = "Irie!"
+}
+
 struct SegueIdentifiers {
     static let game = "showGame"
 }
