@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     func buildInstructionsAlertContoller() -> UIAlertController{
         
         let alertController = UIAlertController(title: "", message:"", preferredStyle: .alert)
-        alertController.view.tintColor = Colors.letterColor // This changes the color of the defined action
+        alertController.view.tintColor = .letterColor // This changes the color of the defined action
         
         let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default,handler: nil)
        
@@ -43,24 +43,8 @@ class HomeViewController: UIViewController {
         
         
         alertController.setValue(textInChalboardSEFont(text: StaticText.instructionsTitle as NSString, color: .black, size: 24), forKey: "attributedTitle")
-        alertController.setValue(textInChalboardSEFont(text: StaticText.instructionsMessage as NSString, color: Colors.letterColor, size: 12), forKey: "attributedMessage")
+        alertController.setValue(textInChalboardSEFont(text: StaticText.instructionsMessage as NSString, color: .letterColor, size: 12), forKey: "attributedMessage")
         return alertController
-    }
-    
-    func textInChalboardSEFont(text: NSString, color: UIColor, size: Int) -> NSMutableAttributedString {
-        let chalkboardSEFont = UIFont(name: "Chalkboard SE", size: CGFloat(size))!
-        return textInFont(text: text, color: color, font: chalkboardSEFont)
-    }
-    
-    func textInFont(text: NSString, color: UIColor, font: UIFont) -> NSMutableAttributedString {
-        
-        let systemBoldAttributes:[String : AnyObject] = [
-            NSFontAttributeName: font,
-            NSForegroundColorAttributeName : color
-        ]
-        
-        return NSMutableAttributedString(string: text as String, attributes:systemBoldAttributes)
-        
     }
 }
 

@@ -11,8 +11,14 @@ import UIKit
 
 struct StaticText {
     static let instructionsTitle = "Instructions"
-    static let instructionsMessage = "Think you know your Caribbean patois? Click the letter tiles to fill the slots and guess the word based on the hint. You get a patty for every correct word and you can use patties to buy a letter. Press play to get started!"
+    static let instructionsMessage = "Think you know your Caribbean patois? Click the letter tiles to fill the slots and guess the word based on the hint. You get a free Patty for every correct word and you can also use patties to see get hints on the answer! Press play to get started!"
     static let instructionsDismissText = "Irie!"
+}
+
+struct DummyData {
+    static let hint = "A young boy"
+    static let answer = "BWOY"
+    static let grid = "AVBSBSJKOLLYWM"
 }
 
 struct SegueIdentifiers {
@@ -21,12 +27,5 @@ struct SegueIdentifiers {
 
 struct Values {
     static let defaultRadius = 6
-}
-
-struct Colors {
-    static let letterColor = UIColor(hexValue: 0x40B320)
-    static let letterBackground = UIColor(hexValue: 0xAAC9A2)
-    static let pattiesBackground = UIColor(hexValue: 0x397D02)
-    static let pattiesLetterColor = UIColor.white
-    static let roundNumberColor = UIColor.white
+    static let lettersInRow = 7
 }

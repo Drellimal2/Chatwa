@@ -24,6 +24,7 @@ import UIKit
     
     override public func layoutSubviews() {
         super.layoutSubviews()
+        self.backgroundColor = .letterBackground
         self.setDefaultCornerRadius()
         clipsToBounds = true
     }
