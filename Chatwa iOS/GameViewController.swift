@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     @IBOutlet weak var hintLabel: UILabel!
@@ -15,6 +16,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var row2StackView: UIStackView!
     
     var navigationBarHeight: CGFloat?
+    var clickSoundPlayer = AVAudioPlayer()
     
     override func viewWillAppear(_ animated: Bool) {
         loadDummyData()
@@ -23,21 +25,11 @@ class GameViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         print("View Setup")
-        setUp() // Set up UI Elements and pre game cofiguration
+        setup() // Set up UI Elements and pre game cofiguration
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func setUp() {
-        showNavigationBar()
-        navigationBarHeight = self.navigationController?.navigationBar.frame.height
-        setUpPattyBarButtonItem()
-        setUpTitleImageView()
-    }
-    
-    @IBAction func gridButtonClicked(_ sender: Any) {
     }
     
     func loadDummyData() {
@@ -48,7 +40,7 @@ class GameViewController: UIViewController {
             let characters = answer.characters
             let numberOfCharacters = characters.count
             
-            firstButton.setTitle(String(answer[answer.startIndex]), for: .normal)
+//            firstButton.setTitle(String(answer[answer.startIndex]), for: .normal)
             let mainFont = firstButton.titleLabel?.font
             let mainFrame = firstButton.frame
             
@@ -57,7 +49,8 @@ class GameViewController: UIViewController {
                 let letter = answer[letterIndex]
                 let answerButton = AnswerButton(frame: mainFrame)
                 answerButton.titleLabel?.font = mainFont
-                answerButton.setTitle(String(letter), for: .normal)
+//                answerButton.setTitle(String(letter), for: .normal)
+                answerButton.addTarget(self, action: #selector(self.answerButtonClicked(_:)), for: .touchUpInside)
                 answerStackView.addArrangedSubview(answerButton)
             }
         }
@@ -88,8 +81,20 @@ class GameViewController: UIViewController {
         
     }
     
+    func setupGameSounds() {
+        let music = Bundle.main.path(forResource: "click", ofType: "mp3")
+        // copy this syntax, it tells the compiler what to do when action is received
+        do {
+            clickSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: music! ))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setActive(true)
+        }
+        catch{
+            print(error)
+        }
+    }
     
-    func setUpPattyBarButtonItem() {
+    func setupPattyBarButtonItem() {
         
         guard let navigationBarHeight = self.navigationBarHeight else {
             return
@@ -115,7 +120,7 @@ class GameViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: containView)
     }
     
-    func setUpTitleImageView() {
+    func setupTitleImageView() {
         
         guard let navigationBarHeight = self.navigationBarHeight else {
             return
@@ -134,6 +139,28 @@ class GameViewController: UIViewController {
         roundView.addSubview(roundLabel)
         
         self.navigationItem.titleView = roundView
+    }
+    
+    func setup() {
+        showNavigationBar()
+        navigationBarHeight = self.navigationController?.navigationBar.frame.height
+        setupPattyBarButtonItem()
+        setupTitleImageView()
+        setupGameSounds()
+    }
+    
+    func playClickSound() {
+        clickSoundPlayer.prepareToPlay()
+        clickSoundPlayer.play()
+    }
+    
+    @IBAction func gridButtonClicked(_ sender: Any) {
+        playClickSound()
+    }
+    
+    
+    @IBAction func answerButtonClicked(_ sender: Any) {
+        playClickSound()
     }
 
     override func didReceiveMemoryWarning() {

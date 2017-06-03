@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27877E3D8F6667F0B48DC369 /* Pods_Chatwa_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C83F71223E4B72DB5BC86E /* Pods_Chatwa_iOS.framework */; };
 		8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D02431EDF246D00C3765E /* GameViewController.swift */; };
 		8A7E13671EDF7A7C0031F8A3 /* awoh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A7E13661EDF7A7C0031F8A3 /* awoh.mp3 */; };
 		8A7E13691EDF7A820031F8A3 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A7E13681EDF7A820031F8A3 /* click.mp3 */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4645D2301E8F897352598FF0 /* Pods-Chatwa iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatwa iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS.release.xcconfig"; sourceTree = "<group>"; };
+		50045D6D3F535BF3004228B6 /* Pods-Chatwa iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatwa iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		8A5D02431EDF246D00C3765E /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8A7E13661EDF7A7C0031F8A3 /* awoh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = awoh.mp3; sourceTree = "<group>"; };
 		8A7E13681EDF7A820031F8A3 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		8ADD89D91ED77B9C0093E432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ADD89DC1ED77B9C0093E432 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ADD89DE1ED77B9C0093E432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5C83F71223E4B72DB5BC86E /* Pods_Chatwa_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatwa_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +51,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27877E3D8F6667F0B48DC369 /* Pods_Chatwa_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		634AF41CC7A43B7BAA916993 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50045D6D3F535BF3004228B6 /* Pods-Chatwa iOS.debug.xcconfig */,
+				4645D2301E8F897352598FF0 /* Pods-Chatwa iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8A7E13641EDF7A450031F8A3 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +109,8 @@
 			children = (
 				8ADD89CE1ED77B9C0093E432 /* Chatwa iOS */,
 				8ADD89CD1ED77B9C0093E432 /* Products */,
+				634AF41CC7A43B7BAA916993 /* Pods */,
+				F1DC57A3CE5C64F7BD75D4A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +139,14 @@
 			path = "Chatwa iOS";
 			sourceTree = "<group>";
 		};
+		F1DC57A3CE5C64F7BD75D4A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5C83F71223E4B72DB5BC86E /* Pods_Chatwa_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8ADD89E11ED77B9C0093E432 /* Build configuration list for PBXNativeTarget "Chatwa iOS" */;
 			buildPhases = (
+				1CDB419A8FE577B0647090EB /* [CP] Check Pods Manifest.lock */,
 				8ADD89C81ED77B9C0093E432 /* Sources */,
 				8ADD89C91ED77B9C0093E432 /* Frameworks */,
 				8ADD89CA1ED77B9C0093E432 /* Resources */,
+				C273CDB6F88EF47333732336 /* [CP] Embed Pods Frameworks */,
+				357818099C3837E0F9AED031 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +219,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CDB419A8FE577B0647090EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		357818099C3837E0F9AED031 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C273CDB6F88EF47333732336 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8ADD89C81ED77B9C0093E432 /* Sources */ = {
@@ -329,6 +404,7 @@
 		};
 		8ADD89E21ED77B9C0093E432 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50045D6D3F535BF3004228B6 /* Pods-Chatwa iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W52FYE629M;
@@ -342,6 +418,7 @@
 		};
 		8ADD89E31ED77B9C0093E432 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4645D2301E8F897352598FF0 /* Pods-Chatwa iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W52FYE629M;
