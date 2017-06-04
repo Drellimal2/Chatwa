@@ -19,6 +19,9 @@ class GameViewController: UIViewController {
     
     var navigationBarHeight: CGFloat?
     var answerButtons = [AnswerButton]()
+    var emptyAnswerSlots = 4
+    var answerGridMap = [AnswerButton: GridButton]()
+    var answer: String!
     
     override func viewWillAppear(_ animated: Bool) {
         loadAnswerAndGrid()
@@ -43,7 +46,7 @@ class GameViewController: UIViewController {
     
     func loadAnswerAndGrid() {
         hintLabel.text = DummyData.hint
-        let answer = DummyData.answer
+        answer = DummyData.answer
         
         if let firstButton = answerStackView.arrangedSubviews[0] as? AnswerButton {
             answerButtons.append(firstButton)
@@ -153,14 +156,53 @@ class GameViewController: UIViewController {
         button.isUserInteractionEnabled = false
     }
     
+    func show(button: UIButton) {
+        button.alpha = 1
+        button.isUserInteractionEnabled = true
+    }
+    
+    func hasEmptyAnswerSlot() -> Bool {
+        return emptyAnswerSlots != 0
+    }
+    
+    func firstEmptyAnswerSlot() -> AnswerButton? {
+        for view in answerStackView.arrangedSubviews {
+            if let answerButton = view as? AnswerButton {
+                if answerButton.titleLabel?.text == nil {
+                    return answerButton
+                }
+            }
+        }
+        return nil
+    }
+    
     @IBAction func gridButtonClicked(_ sender: GridButton) {
         playClickSound()
-        hide(button: sender)
+        
+        if (hasEmptyAnswerSlot()) {
+            let letter = sender.titleLabel?.text
+            if let emptySlot = firstEmptyAnswerSlot() {
+                answerGridMap[emptySlot] = sender
+                emptySlot.setTitle(letter, for: .normal)
+                hide(button: sender)
+                emptyAnswerSlots -= 1
+            }
+            
+        }
+        
     }
     
     
     @IBAction func answerButtonClicked(_ sender: AnswerButton) {
-        playClickSound()
+        if let gridButton = answerGridMap[sender] {
+            playClickSound()
+            sender.setTitle(nil, for: .normal)
+            sender.titleLabel?.text = nil
+            show(button: gridButton)
+            emptyAnswerSlots += 1
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
