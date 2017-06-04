@@ -57,7 +57,7 @@
                                     <action selector="instructionsButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkP-UP-Apd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Caribbean Patois Guessing Game " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cay-LA-fjd" userLabel="Slogan Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Jamaican Patois Guessing Game " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cay-LA-fjd" userLabel="Slogan Label">
                                 <rect key="frame" x="20" y="175.5" width="627" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -444,18 +444,18 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="vRZ-Cm-kBR" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="01G-Nu-hk1"/>
-                                    <constraint firstItem="75P-7w-MeV" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="3wQ-ok-djc"/>
-                                    <constraint firstItem="vRZ-Cm-kBR" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="NeJ-5V-XKz"/>
-                                    <constraint firstItem="VA6-bU-M4s" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="QHO-2u-h7Y"/>
-                                    <constraint firstItem="75P-7w-MeV" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="T5X-Js-ysU"/>
-                                    <constraint firstItem="tqx-0l-Auh" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="Wnl-Y3-i1S"/>
-                                    <constraint firstItem="aIT-KV-sP7" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="YPz-cH-J1q"/>
-                                    <constraint firstItem="VA6-bU-M4s" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="fgn-b7-mb9"/>
-                                    <constraint firstItem="Q1n-Ek-fzl" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="gYM-1u-YKA"/>
-                                    <constraint firstItem="aIT-KV-sP7" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="j2Q-2f-nRw"/>
-                                    <constraint firstItem="Q1n-Ek-fzl" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="nVy-sX-5dY"/>
-                                    <constraint firstItem="tqx-0l-Auh" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="upx-mP-ooP"/>
+                                    <constraint firstItem="vRZ-Cm-kBR" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="01G-Nu-hk1"/>
+                                    <constraint firstItem="75P-7w-MeV" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="3wQ-ok-djc"/>
+                                    <constraint firstItem="vRZ-Cm-kBR" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="NeJ-5V-XKz"/>
+                                    <constraint firstItem="VA6-bU-M4s" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="QHO-2u-h7Y"/>
+                                    <constraint firstItem="75P-7w-MeV" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="T5X-Js-ysU"/>
+                                    <constraint firstItem="tqx-0l-Auh" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="Wnl-Y3-i1S"/>
+                                    <constraint firstItem="aIT-KV-sP7" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="YPz-cH-J1q"/>
+                                    <constraint firstItem="VA6-bU-M4s" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="fgn-b7-mb9"/>
+                                    <constraint firstItem="Q1n-Ek-fzl" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="gYM-1u-YKA"/>
+                                    <constraint firstItem="aIT-KV-sP7" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="j2Q-2f-nRw"/>
+                                    <constraint firstItem="Q1n-Ek-fzl" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="nVy-sX-5dY"/>
+                                    <constraint firstItem="tqx-0l-Auh" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="upx-mP-ooP"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-G7-B2q" userLabel="Row 2 StackView">
@@ -690,18 +690,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="X24-nR-HkW" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="5Vu-4p-5po"/>
+                            <constraint firstItem="X24-nR-HkW" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="5Vu-4p-5po"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="top" secondItem="VlY-Ak-Xen" secondAttribute="bottom" constant="30" id="Al1-Ls-Irk">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
                                 <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                             </constraint>
-                            <constraint firstItem="cyr-p0-Xd2" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="BwE-E2-Gep"/>
+                            <constraint firstItem="cyr-p0-Xd2" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="BwE-E2-Gep"/>
                             <constraint firstItem="8Ly-zq-MLD" firstAttribute="centerX" secondItem="QXG-AH-Zcm" secondAttribute="centerX" id="CeN-Ri-b9a"/>
-                            <constraint firstItem="5zU-BG-FGa" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="E6N-YP-7IE"/>
-                            <constraint firstItem="cyr-p0-Xd2" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="G9N-hL-akD"/>
+                            <constraint firstItem="5zU-BG-FGa" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="E6N-YP-7IE"/>
+                            <constraint firstItem="cyr-p0-Xd2" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="G9N-hL-akD"/>
                             <constraint firstItem="o7V-G7-B2q" firstAttribute="top" secondItem="8Ly-zq-MLD" secondAttribute="bottom" constant="15" id="GMv-Md-EkQ"/>
-                            <constraint firstItem="2aN-SM-2IN" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="H1m-Ot-5LH"/>
+                            <constraint firstItem="2aN-SM-2IN" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="H1m-Ot-5LH"/>
                             <constraint firstItem="VlY-Ak-Xen" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" constant="8" id="HkC-Nq-szN"/>
                             <constraint firstItem="VlY-Ak-Xen" firstAttribute="trailing" secondItem="QXG-AH-Zcm" secondAttribute="trailingMargin" id="JcX-Yu-81m"/>
                             <constraint firstItem="5RD-RS-fwe" firstAttribute="top" secondItem="uG4-kq-oFw" secondAttribute="bottom" constant="40" id="Kj1-VA-dbw">
@@ -710,22 +710,22 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
                             <constraint firstItem="5RD-RS-fwe" firstAttribute="centerX" secondItem="uG4-kq-oFw" secondAttribute="centerX" id="LJx-bM-dto"/>
-                            <constraint firstItem="uBh-Nb-seq" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="MRI-hP-ScP"/>
-                            <constraint firstItem="5zU-BG-FGa" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="QRU-gD-2zQ"/>
-                            <constraint firstItem="qCG-pD-wTm" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="SXx-HL-atX"/>
+                            <constraint firstItem="uBh-Nb-seq" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="MRI-hP-ScP"/>
+                            <constraint firstItem="5zU-BG-FGa" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="QRU-gD-2zQ"/>
+                            <constraint firstItem="qCG-pD-wTm" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="SXx-HL-atX"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="trailing" secondItem="QXG-AH-Zcm" secondAttribute="trailingMargin" id="TdO-fe-YCG"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="leading" secondItem="QXG-AH-Zcm" secondAttribute="leadingMargin" id="Wi5-pU-gwC"/>
-                            <constraint firstItem="X24-nR-HkW" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="XJq-Rf-qt9"/>
-                            <constraint firstItem="a8n-SR-O7z" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" id="b1v-Vr-63f"/>
+                            <constraint firstItem="X24-nR-HkW" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="XJq-Rf-qt9"/>
+                            <constraint firstItem="a8n-SR-O7z" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="b1v-Vr-63f"/>
                             <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="o7V-G7-B2q" secondAttribute="bottom" constant="40" id="glO-O6-AM7">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
                             </constraint>
-                            <constraint firstItem="a8n-SR-O7z" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="mxs-O3-zyw"/>
-                            <constraint firstItem="qCG-pD-wTm" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="oRY-7b-xdm"/>
-                            <constraint firstItem="uBh-Nb-seq" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="p6y-kU-1Y7"/>
+                            <constraint firstItem="a8n-SR-O7z" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="mxs-O3-zyw"/>
+                            <constraint firstItem="qCG-pD-wTm" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="oRY-7b-xdm"/>
+                            <constraint firstItem="uBh-Nb-seq" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="p6y-kU-1Y7"/>
                             <constraint firstItem="o7V-G7-B2q" firstAttribute="centerX" secondItem="8Ly-zq-MLD" secondAttribute="centerX" id="qqG-JI-Cy9"/>
-                            <constraint firstItem="2aN-SM-2IN" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" id="sbT-1h-y0c"/>
+                            <constraint firstItem="2aN-SM-2IN" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="sbT-1h-y0c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pfa-Dm-E9N"/>

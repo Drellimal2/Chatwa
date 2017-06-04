@@ -11,7 +11,7 @@ import UIKit
 
 struct StaticText {
     static let instructionsTitle = "Instructions"
-    static let instructionsMessage = "Think you know your Caribbean Patois? Click the letter tiles at the bottom to fill in all the empty slots. When you've filled them all if they match the answer then hoorah! You've got it right. You get a free Patty for every correct word and you can also use patties to see get hints on the answer! Press play to get started!"
+    static let instructionsMessage = "Think you know your Jamaican Patois? Click the letter tiles at the bottom to fill in all the empty slots. When you've filled them all if they match the answer then hoorah! You've got it right. You get a free Patty for every correct word and you can also use patties to see get hints on the answer! Press play to get started!"
     static let instructionsDismissText = "Irie!"
 }
 

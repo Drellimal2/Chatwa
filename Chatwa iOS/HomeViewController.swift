@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeViewController: UIViewController {
 
+    lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer()
+    
     override func viewWillAppear(_ animated: Bool) {
         showNavigationBar(show: false)
     }
@@ -25,10 +28,12 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func playButtonClicked(_ sender: Any) {
+        play(player: clickSoundPlayer)
         self.performSegue(withIdentifier: SegueIdentifiers.game, sender: self)
     }
 
     @IBAction func instructionsButtonClicked(_ sender: Any) {
+        play(player: clickSoundPlayer)
         self.present(buildInstructionsAlertContoller(), animated: true, completion: nil)
     }
     
@@ -37,7 +42,7 @@ class HomeViewController: UIViewController {
         let alertController = UIAlertController(title: "", message:"", preferredStyle: .alert)
         alertController.view.tintColor = .letterColor // This changes the color of the defined action
         
-        let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default,handler: nil)
+        let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default,handler: { alertAction in self.play(player: self.clickSoundPlayer) })
        
         alertController.addAction(dismissAction)
         

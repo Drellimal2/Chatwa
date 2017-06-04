@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 extension UIViewController {
     
@@ -25,6 +26,32 @@ extension UIViewController {
     func textInChalboardSEFont(text: NSString, color: UIColor, size: Int) -> NSMutableAttributedString {
         let chalkboardSEFont = UIFont(name: "Chalkboard SE", size: CGFloat(size))!
         return textInFont(text: text, color: color, font: chalkboardSEFont)
+    }
+    
+    func getClickSoundPlayer() -> AVAudioPlayer? {
+        let click = Bundle.main.path(forResource: "click", ofType: "mp3")
+        // copy this syntax, it tells the compiler what to do when action is received
+        do {
+            let clickSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: click! ))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            return clickSoundPlayer
+        }
+        catch{
+            print(error)
+        }
+        return nil
+    }
+    
+    func play(player: AVAudioPlayer?) {
+        guard let player = player else {
+            print("Audio Player is nil!")
+            return
+        }
+        player.prepareToPlay()
+        player.play()
+        
     }
     
     func textInFont(text: NSString, color: UIColor, font: UIFont) -> NSMutableAttributedString {

@@ -15,11 +15,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var row1StackView: UIStackView!
     @IBOutlet weak var row2StackView: UIStackView!
     
+    lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer()
+    
     var navigationBarHeight: CGFloat?
-    var clickSoundPlayer = AVAudioPlayer()
+    var answerButtons = [AnswerButton]()
     
     override func viewWillAppear(_ animated: Bool) {
-        loadDummyData()
+        loadAnswerAndGrid()
         
     }
     
@@ -32,25 +34,24 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func loadDummyData() {
+    func loadAnswerAndGrid() {
         hintLabel.text = DummyData.hint
         let answer = DummyData.answer
         
         if let firstButton = answerStackView.arrangedSubviews[0] as? AnswerButton {
+            answerButtons.append(firstButton)
             let characters = answer.characters
             let numberOfCharacters = characters.count
             
-//            firstButton.setTitle(String(answer[answer.startIndex]), for: .normal)
             let mainFont = firstButton.titleLabel?.font
             let mainFrame = firstButton.frame
             
-            for index in 1...(numberOfCharacters - 1) {
-                let letterIndex = answer.index(answer.startIndex, offsetBy: index)
-                let letter = answer[letterIndex]
+            for _ in 1...(numberOfCharacters - 1) {
                 let answerButton = AnswerButton(frame: mainFrame)
                 answerButton.titleLabel?.font = mainFont
-//                answerButton.setTitle(String(letter), for: .normal)
+                answerButton.isUserInteractionEnabled = true
                 answerButton.addTarget(self, action: #selector(self.answerButtonClicked(_:)), for: .touchUpInside)
+                answerButtons.append(answerButton)
                 answerStackView.addArrangedSubview(answerButton)
             }
         }
@@ -81,18 +82,6 @@ class GameViewController: UIViewController {
         
     }
     
-    func setupGameSounds() {
-        let music = Bundle.main.path(forResource: "click", ofType: "mp3")
-        // copy this syntax, it tells the compiler what to do when action is received
-        do {
-            clickSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: music! ))
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-            try AVAudioSession.sharedInstance().setActive(true)
-        }
-        catch{
-            print(error)
-        }
-    }
     
     func setupPattyBarButtonItem() {
         
@@ -146,20 +135,24 @@ class GameViewController: UIViewController {
         navigationBarHeight = self.navigationController?.navigationBar.frame.height
         setupPattyBarButtonItem()
         setupTitleImageView()
-        setupGameSounds()
     }
     
     func playClickSound() {
-        clickSoundPlayer.prepareToPlay()
-        clickSoundPlayer.play()
+        play(player: clickSoundPlayer)
     }
     
-    @IBAction func gridButtonClicked(_ sender: Any) {
+    func hide(button: UIButton) {
+        button.alpha = 0
+        button.isUserInteractionEnabled = false
+    }
+    
+    @IBAction func gridButtonClicked(_ sender: GridButton) {
         playClickSound()
+        hide(button: sender)
     }
     
     
-    @IBAction func answerButtonClicked(_ sender: Any) {
+    @IBAction func answerButtonClicked(_ sender: AnswerButton) {
         playClickSound()
     }
 
