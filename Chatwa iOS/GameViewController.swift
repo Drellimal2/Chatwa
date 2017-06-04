@@ -34,6 +34,13 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if(self.isMovingFromParentViewController) {
+            play(player: self.clickSoundPlayer)
+        }
+    }
+    
     func loadAnswerAndGrid() {
         hintLabel.text = DummyData.hint
         let answer = DummyData.answer
