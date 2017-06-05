@@ -42,7 +42,8 @@ class HomeViewController: UIViewController {
         let alertController = UIAlertController(title: "", message:"", preferredStyle: .alert)
         alertController.view.tintColor = .letterColor // This changes the color of the defined action
         
-        let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default,handler: { alertAction in self.play(player: self.clickSoundPlayer) })
+        let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default, handler: nil)
+//        let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default,handler: { alertAction in self.play(player: self.clickSoundPlayer) })
        
         alertController.addAction(dismissAction)
         

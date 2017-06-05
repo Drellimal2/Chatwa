@@ -11,6 +11,9 @@ import UIKit
 @IBDesignable class GridButton: LetterButton {
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    func setDefaultColor() {
         self.setTitleColor(.letterColor, for: .normal)
     }
 }

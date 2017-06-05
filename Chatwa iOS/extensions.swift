@@ -44,6 +44,22 @@ extension UIViewController {
         return nil
     }
     
+    func getAwohSoundPlayer() -> AVAudioPlayer? {
+        let awoh = Bundle.main.path(forResource: "awoh", ofType: "mp3")
+        // copy this syntax, it tells the compiler what to do when action is received
+        do {
+            let awohSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: awoh! ))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            return awohSoundPlayer
+        }
+        catch{
+            print(error)
+        }
+        return nil
+    }
+    
     func play(player: AVAudioPlayer?) {
         guard let player = player else {
             print("Audio Player is nil!")

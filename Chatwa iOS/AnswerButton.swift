@@ -12,6 +12,13 @@ import UIKit
     
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    func setDefaultColor() {
         self.setTitleColor(.black, for: .normal)
+    }
+    
+    func setWrongAnswerColor() {
+        self.setTitleColor(.red, for: .normal)
     }
 }

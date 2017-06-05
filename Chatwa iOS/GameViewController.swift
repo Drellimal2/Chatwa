@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class GameViewController: UIViewController {
     @IBOutlet weak var hintLabel: UILabel!
@@ -16,21 +17,18 @@ class GameViewController: UIViewController {
     @IBOutlet weak var row2StackView: UIStackView!
     
     lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer()
+    lazy var awohSoundPlayer: AVAudioPlayer? = self.getAwohSoundPlayer()
     
     var navigationBarHeight: CGFloat?
     var answerButtons = [AnswerButton]()
-    var emptyAnswerSlots = 4
     var answerGridMap = [AnswerButton: GridButton]()
     var answer: String!
     
     override func viewWillAppear(_ animated: Bool) {
-        loadAnswerAndGrid()
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
         print("View Setup")
         setup() // Set up UI Elements and pre game cofiguration
+        loadAnswerAndGrid()
+        
     }
     
     override func viewDidLoad() {
@@ -49,6 +47,7 @@ class GameViewController: UIViewController {
         answer = DummyData.answer
         
         if let firstButton = answerStackView.arrangedSubviews[0] as? AnswerButton {
+            firstButton.setDefaultColor()
             answerButtons.append(firstButton)
             let characters = answer.characters
             let numberOfCharacters = characters.count
@@ -59,6 +58,7 @@ class GameViewController: UIViewController {
             for _ in 1...(numberOfCharacters - 1) {
                 let answerButton = AnswerButton(frame: mainFrame)
                 answerButton.titleLabel?.font = mainFont
+                answerButton.setDefaultColor()
                 answerButton.isUserInteractionEnabled = true
                 answerButton.addTarget(self, action: #selector(self.answerButtonClicked(_:)), for: .touchUpInside)
                 answerButtons.append(answerButton)
@@ -79,6 +79,9 @@ class GameViewController: UIViewController {
             guard let row2Button = row2LetterButtons[index] as? GridButton else {
                 continue
             }
+            
+            row1Button.setDefaultColor()
+            row2Button.setDefaultColor()
             
             let row1LetterIndex = gridString.index(gridString.startIndex, offsetBy: index)
             let row2LetterIndex = gridString.index(gridString.startIndex, offsetBy: index + Values.lettersInRow)
@@ -162,7 +165,14 @@ class GameViewController: UIViewController {
     }
     
     func hasEmptyAnswerSlot() -> Bool {
-        return emptyAnswerSlots != 0
+        for view in answerStackView.arrangedSubviews {
+            if let answerButton = view as? AnswerButton {
+                if answerButton.titleLabel?.text == nil {
+                    return true
+                }
+            }
+        }
+        return false
     }
     
     func firstEmptyAnswerSlot() -> AnswerButton? {
@@ -176,32 +186,80 @@ class GameViewController: UIViewController {
         return nil
     }
     
+    func setAnswerColorRed() {
+        for view in answerStackView.arrangedSubviews {
+            if let answerButton = view as? AnswerButton {
+                answerButton.setWrongAnswerColor()
+                answerButton.setNeedsDisplay()
+            }
+        }
+    }
+    
+    func setAnswerColorDefault() {
+        for view in answerStackView.arrangedSubviews {
+            if let answerButton = view as? AnswerButton {
+                answerButton.setDefaultColor()
+            }
+        }
+    }
+    
+    func isCorrectAnswer() -> Bool {
+        var proposedAnswer = ""
+        for view in answerStackView.arrangedSubviews {
+            if let answerButton = view as? AnswerButton {
+                proposedAnswer += (answerButton.titleLabel?.text)!
+            }
+        }
+        
+        return proposedAnswer == answer
+    }
+    
+    func wrongAnswer() {
+        setAnswerColorRed()
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))  // Vibrate device
+    }
+    
+    func correctAnswer() {
+        play(player: awohSoundPlayer)
+    }
+    
     @IBAction func gridButtonClicked(_ sender: GridButton) {
         playClickSound()
-        
-        if (hasEmptyAnswerSlot()) {
+        sender.isUserInteractionEnabled = false
+        if hasEmptyAnswerSlot() {
             let letter = sender.titleLabel?.text
             if let emptySlot = firstEmptyAnswerSlot() {
                 answerGridMap[emptySlot] = sender
                 emptySlot.setTitle(letter, for: .normal)
                 hide(button: sender)
-                emptyAnswerSlots -= 1
+            }
+            
+            if !hasEmptyAnswerSlot() {
+                if isCorrectAnswer() {
+                    correctAnswer()
+                } else {
+                    wrongAnswer()
+                }
             }
             
         }
+        
+        sender.isUserInteractionEnabled = true
         
     }
     
     
     @IBAction func answerButtonClicked(_ sender: AnswerButton) {
+        sender.isUserInteractionEnabled = false
         if let gridButton = answerGridMap[sender] {
             playClickSound()
+            setAnswerColorDefault()
             sender.setTitle(nil, for: .normal)
             sender.titleLabel?.text = nil
             show(button: gridButton)
-            emptyAnswerSlots += 1
-            
         }
+        
+        sender.isUserInteractionEnabled = true
         
     }
 
