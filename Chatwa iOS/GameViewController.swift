@@ -10,11 +10,17 @@ import UIKit
 import AVFoundation
 import AudioToolbox
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController { // Outlets and overriden functions
+    @IBOutlet weak var correctTransitionView: UIView!
     @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var pronunciationButton: UIButton!
     @IBOutlet weak var answerStackView: UIStackView!
     @IBOutlet weak var row1StackView: UIStackView!
     @IBOutlet weak var row2StackView: UIStackView!
+    @IBOutlet weak var yaadieLabel: UILabel!
+    @IBOutlet weak var awohButton: UIButton!
+    @IBOutlet weak var yaadieLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var awohButtonConstraint: NSLayoutConstraint!
     
     lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer()
     lazy var awohSoundPlayer: AVAudioPlayer? = self.getAwohSoundPlayer()
@@ -23,6 +29,7 @@ class GameViewController: UIViewController {
     var answerButtons = [AnswerButton]()
     var answerGridMap = [AnswerButton: GridButton]()
     var answer: String!
+    var roundNumber: Int!
     
     override func viewWillAppear(_ animated: Bool) {
         print("View Setup")
@@ -37,11 +44,64 @@ class GameViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if(self.isMovingFromParentViewController) {
+        if(self.isMovingFromParentViewController) { // Play sound when back button is clicked
             play(player: self.clickSoundPlayer)
         }
     }
     
+    @IBAction func gridButtonClicked(_ sender: GridButton) {
+        playClickSound()
+        sender.isUserInteractionEnabled = false
+        if hasEmptyAnswerSlot() {
+            let letter = sender.titleLabel?.text
+            if let emptySlot = firstEmptyAnswerSlot() {
+                answerGridMap[emptySlot] = sender
+                emptySlot.setTitle(letter, for: .normal)
+                hide(button: sender)
+            }
+            
+            if !hasEmptyAnswerSlot() {
+                if isCorrectAnswer() {
+                    correctAnswer()
+                } else {
+                    wrongAnswer()
+                }
+            }
+            
+        }
+        
+        sender.isUserInteractionEnabled = true
+        
+    }
+    
+    @IBAction func answerButtonClicked(_ sender: AnswerButton) {
+        sender.isUserInteractionEnabled = false
+        if let gridButton = answerGridMap[sender] {
+            playClickSound()
+            setAnswerColorDefault()
+            sender.setTitle(nil, for: .normal)
+            sender.titleLabel?.text = nil
+            show(button: gridButton)
+        }
+        
+        sender.isUserInteractionEnabled = true
+        
+    }
+    
+    @IBAction func pronunciationButtonClicked(_ sender: Any) {
+    }
+    
+    @IBAction func awohButtonClicked(_ sender: Any) {
+        play(player: awohSoundPlayer)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+extension GameViewController { // Functions primarily used to setup the Game UI Elements
     func loadAnswerAndGrid() {
         hintLabel.text = DummyData.hint
         answer = DummyData.answer
@@ -123,6 +183,7 @@ class GameViewController: UIViewController {
     }
     
     func setupTitleImageView() {
+        roundNumber = 0 // TODO: get actual round number
         
         guard let navigationBarHeight = self.navigationBarHeight else {
             return
@@ -134,7 +195,7 @@ class GameViewController: UIViewController {
         roundView.setCornerRadius(radius: 20)
         
         let roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight))
-        roundLabel.text = "999"
+        roundLabel.text = "\(roundNumber!)"
         roundLabel.textAlignment = .center
         roundLabel.font = UIFont(name: "Chalkboard SE", size: 14)
         roundLabel.textColor = .roundNumberColor
@@ -143,13 +204,41 @@ class GameViewController: UIViewController {
         self.navigationItem.titleView = roundView
     }
     
+    func setupPronunciationButton() {
+        pronunciationButton.isHidden = true
+        pronunciationButton.isEnabled = false
+    }
+    
+    // Adjusts the value of the constraint keeping the label in the center of the screenhorizontally
+    // +/- width of the screen based on parameter truthness
+    func setYaadieLabelVisibility(visible: Bool) {
+        let f: (NSLayoutConstraint)->Void = visible ? { $0.constant += self.view.bounds.width }: { $0.constant -= self.view.bounds.width }
+        f(yaadieLabelConstraint)
+    }
+    
+    // Adjusts the value of the constraint keeping the button in the center of the screen horizontally
+    // +/- width of the screen based on parameter truthness
+    func setAwohButtonVisibility(visible: Bool) {
+        let f: (NSLayoutConstraint)->Void = visible ? { $0.constant += self.view.bounds.width }: { $0.constant -= self.view.bounds.width }
+        f(awohButtonConstraint)
+    }
+    
+    func setSuccessMessageVisibility(visible: Bool) {
+        setYaadieLabelVisibility(visible: visible)
+        setAwohButtonVisibility(visible: visible)
+    }
+    
     func setup() {
         showNavigationBar()
         navigationBarHeight = self.navigationController?.navigationBar.frame.height
         setupPattyBarButtonItem()
         setupTitleImageView()
+        setupPronunciationButton()
+        setSuccessMessageVisibility(visible: false)
     }
-    
+}
+
+extension GameViewController { // Functions used in Gameplay
     func playClickSound() {
         play(player: clickSoundPlayer)
     }
@@ -219,53 +308,69 @@ class GameViewController: UIViewController {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))  // Vibrate device
     }
     
+    func animateAppearance() {
+        awohButton.isEnabled = false
+        
+        setYaadieLabelVisibility(visible: true)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        setAwohButtonVisibility(visible: true)
+        UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: { result in
+            self.awohButton.isEnabled = true
+        })
+    }
+    
+    func animateDisappearance() {
+        awohButton.isEnabled = false
+        
+        setAwohButtonVisibility(visible: false)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        setYaadieLabelVisibility(visible: false)
+        UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: { result in
+            self.setAllButtons(enabled: true)
+        })
+    }
+    
     func correctAnswer() {
-        play(player: awohSoundPlayer)
+        setAllButtons(enabled: false)
+        setCorrectTransitionViewVisibility(visible: true)
+        animateAppearance()
     }
     
-    @IBAction func gridButtonClicked(_ sender: GridButton) {
-        playClickSound()
-        sender.isUserInteractionEnabled = false
-        if hasEmptyAnswerSlot() {
-            let letter = sender.titleLabel?.text
-            if let emptySlot = firstEmptyAnswerSlot() {
-                answerGridMap[emptySlot] = sender
-                emptySlot.setTitle(letter, for: .normal)
-                hide(button: sender)
+    func setCorrectTransitionViewVisibility(visible: Bool) {
+        correctTransitionView.alpha = visible ? CGFloat(Values.correctTransitionViewAlpha): 0
+    }
+    
+    func setAllButtons(enabled: Bool) {
+        for view in answerStackView.arrangedSubviews {
+            if let answerButton = view as? AnswerButton {
+                answerButton.isEnabled = enabled
             }
-            
-            if !hasEmptyAnswerSlot() {
-                if isCorrectAnswer() {
-                    correctAnswer()
-                } else {
-                    wrongAnswer()
-                }
-            }
-            
         }
         
-        sender.isUserInteractionEnabled = true
+        let row1LetterButtons = row1StackView.arrangedSubviews
+        let row2LetterButtons = row2StackView.arrangedSubviews
         
-    }
-    
-    
-    @IBAction func answerButtonClicked(_ sender: AnswerButton) {
-        sender.isUserInteractionEnabled = false
-        if let gridButton = answerGridMap[sender] {
-            playClickSound()
-            setAnswerColorDefault()
-            sender.setTitle(nil, for: .normal)
-            sender.titleLabel?.text = nil
-            show(button: gridButton)
+        for index in 0...(Values.lettersInRow - 1) {
+            guard let row1Button = row1LetterButtons[index] as? GridButton else {
+                continue
+            }
+            
+            guard let row2Button = row2LetterButtons[index] as? GridButton else {
+                continue
+            }
+            
+            row1Button.isEnabled = enabled
+            row2Button.isEnabled = enabled
         }
-        
-        sender.isUserInteractionEnabled = true
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

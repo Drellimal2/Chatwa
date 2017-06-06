@@ -28,4 +28,5 @@ struct SegueIdentifiers {
 struct Values {
     static let defaultRadius = 6
     static let lettersInRow = 7
+    static let correctTransitionViewAlpha = 0.25
 }

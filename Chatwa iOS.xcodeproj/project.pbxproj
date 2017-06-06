@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27877E3D8F6667F0B48DC369 /* Pods_Chatwa_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C83F71223E4B72DB5BC86E /* Pods_Chatwa_iOS.framework */; };
+		8A4BFA661EE65F27007E320F /* AwohButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4BFA651EE65F27007E320F /* AwohButton.swift */; };
 		8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D02431EDF246D00C3765E /* GameViewController.swift */; };
 		8A7E13671EDF7A7C0031F8A3 /* awoh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A7E13661EDF7A7C0031F8A3 /* awoh.mp3 */; };
 		8A7E13691EDF7A820031F8A3 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A7E13681EDF7A820031F8A3 /* click.mp3 */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		4645D2301E8F897352598FF0 /* Pods-Chatwa iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatwa iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS.release.xcconfig"; sourceTree = "<group>"; };
 		50045D6D3F535BF3004228B6 /* Pods-Chatwa iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatwa iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		8A4BFA651EE65F27007E320F /* AwohButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwohButton.swift; sourceTree = "<group>"; };
 		8A5D02431EDF246D00C3765E /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8A7E13661EDF7A7C0031F8A3 /* awoh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = awoh.mp3; sourceTree = "<group>"; };
 		8A7E13681EDF7A820031F8A3 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				8A7E13721EE083FB0031F8A3 /* LetterButton.swift */,
 				8A7E13761EE27E940031F8A3 /* AnswerButton.swift */,
 				8A7E13781EE27EA40031F8A3 /* GridButton.swift */,
+				8A4BFA651EE65F27007E320F /* AwohButton.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */,
 				8ADD89D81ED77B9C0093E432 /* Chatwa_iOS.xcdatamodeld in Sources */,
 				8A7E13731EE083FB0031F8A3 /* LetterButton.swift in Sources */,
+				8A4BFA661EE65F27007E320F /* AwohButton.swift in Sources */,
 				8A7E137B1EE5F4F10031F8A3 /* models.swift in Sources */,
 				8ADD89D21ED77B9C0093E432 /* HomeViewController.swift in Sources */,
 				8ADD89D01ED77B9C0093E432 /* AppDelegate.swift in Sources */,

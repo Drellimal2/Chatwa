@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UC7-TQ-UfR">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chatwa!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYb-Kf-ok2" userLabel="Name">
-                                <rect key="frame" x="234" y="76" width="200" height="79.5"/>
+                                <rect key="frame" x="88" y="152" width="200" height="79.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="56"/>
                                 <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-Fb-yLB" userLabel="Instructions Button">
-                                <rect key="frame" x="253.5" y="297.5" width="160" height="35"/>
+                                <rect key="frame" x="122.5" y="479" width="130" height="35"/>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.78823529411764703" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="BQ3-Wt-1tS">
@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Jamaican Patois Guessing Game " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cay-LA-fjd" userLabel="Slogan Label">
-                                <rect key="frame" x="20" y="175.5" width="627" height="24"/>
+                                <rect key="frame" x="16" y="321.5" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ov-vI-d0Q" userLabel="Play Button">
-                                <rect key="frame" x="253.5" y="239.5" width="160" height="35"/>
+                                <rect key="frame" x="122.5" y="421" width="130" height="35"/>
                                 <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
                                 <state key="normal" title="Play">
@@ -122,11 +122,11 @@
                         <viewControllerLayoutGuide type="bottom" id="CmE-q2-6Z6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QXG-AH-Zcm">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VlY-Ak-Xen" userLabel="Pronunciation Button">
-                                <rect key="frame" x="622" y="72" width="25" height="25"/>
+                                <rect key="frame" x="309" y="72" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="43y-FY-zyU">
                                         <variation key="heightClass=compact-widthClass=compact" constant="25"/>
@@ -140,9 +140,12 @@
                                     </constraint>
                                 </constraints>
                                 <state key="normal" image="Pronunciation Icon"/>
+                                <connections>
+                                    <action selector="pronunciationButtonClicked:" destination="MbG-KD-AuC" eventType="touchUpInside" id="ajn-Cd-woC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uG4-kq-oFw" userLabel="Hint Label">
-                                <rect key="frame" x="20" y="107" width="627" height="40"/>
+                                <rect key="frame" x="16" y="152" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="n54-Ex-C91">
                                         <variation key="heightClass=compact-widthClass=compact" constant="40"/>
@@ -159,7 +162,7 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="5RD-RS-fwe" userLabel="Answer StackView">
-                                <rect key="frame" x="318.5" y="167" width="30" height="30"/>
+                                <rect key="frame" x="172.5" y="272" width="30" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW2-0p-FwA" userLabel="Answer Letter 1" customClass="AnswerButton" customModule="Chatwa_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -204,10 +207,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Ly-zq-MLD" userLabel="Row 1 StackView">
-                                <rect key="frame" x="213.5" y="290" width="240" height="30"/>
+                                <rect key="frame" x="50" y="542" width="275" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRC-2T-d7I" userLabel="Letter 1" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -251,7 +254,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75P-7w-MeV" userLabel="Letter 2" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="40" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -283,7 +286,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIT-KV-sP7" userLabel="Letter 3" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="80" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -315,7 +318,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRZ-Cm-kBR" userLabel="Letter 4" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="120" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -347,7 +350,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA6-bU-M4s" userLabel="Letter 5" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="140" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="160" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -379,7 +382,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqx-0l-Auh" userLabel="Letter 6" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="175" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="200" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -411,7 +414,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1n-Ek-fzl" userLabel="Letter 7" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="210" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="240" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -459,10 +462,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-G7-B2q" userLabel="Row 2 StackView">
-                                <rect key="frame" x="213.5" y="335" width="240" height="30"/>
+                                <rect key="frame" x="50" y="592" width="275" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyr-p0-Xd2" userLabel="Letter 8" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -494,7 +497,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aN-SM-2IN" userLabel="Letter 9" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="40" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -526,7 +529,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8n-SR-O7z" userLabel="Letter 10" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="80" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -558,7 +561,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBh-Nb-seq" userLabel="Letter 11" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="120" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -590,7 +593,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zU-BG-FGa" userLabel="Letter 12" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="140" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="160" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -622,7 +625,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCG-pD-wTm" userLabel="Letter 13" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="175" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="200" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -654,7 +657,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X24-nR-HkW" userLabel="Letter 14" customClass="GridButton" customModule="Chatwa_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="210" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="240" y="0.0" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.78823529410000004" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
@@ -687,10 +690,43 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBS-U5-N49">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U A REAL YAADIE!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-mY-S2g">
+                                <rect key="frame" x="38" y="89" width="299" height="48.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="34"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="52"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q35-aV-wsi" customClass="AwohButton" customModule="Chatwa_iOS" customModuleProvider="target">
+                                <rect key="frame" x="76" y="506" width="222" height="61"/>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="222" id="BI7-NO-d1t"/>
+                                    <constraint firstAttribute="height" constant="61" id="aFs-8x-ZN9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="26"/>
+                                <state key="normal" title="AWOH!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="36"/>
+                                </variation>
+                                <connections>
+                                    <action selector="awohButtonClicked:" destination="MbG-KD-AuC" eventType="touchUpInside" id="aY7-bV-BJl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="X24-nR-HkW" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="5Vu-4p-5po"/>
+                            <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="TBS-U5-N49" secondAttribute="bottom" id="9Xw-ZH-fZ1"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="top" secondItem="VlY-Ak-Xen" secondAttribute="bottom" constant="30" id="Al1-Ls-Irk">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
@@ -711,34 +747,47 @@
                             </constraint>
                             <constraint firstItem="5RD-RS-fwe" firstAttribute="centerX" secondItem="uG4-kq-oFw" secondAttribute="centerX" id="LJx-bM-dto"/>
                             <constraint firstItem="uBh-Nb-seq" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="MRI-hP-ScP"/>
+                            <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="q35-aV-wsi" secondAttribute="bottom" constant="100" id="MeO-Ui-NHH"/>
                             <constraint firstItem="5zU-BG-FGa" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="QRU-gD-2zQ"/>
                             <constraint firstItem="qCG-pD-wTm" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="SXx-HL-atX"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="trailing" secondItem="QXG-AH-Zcm" secondAttribute="trailingMargin" id="TdO-fe-YCG"/>
+                            <constraint firstItem="KQZ-mY-S2g" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" constant="25" id="WR8-y4-vhD"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="leading" secondItem="QXG-AH-Zcm" secondAttribute="leadingMargin" id="Wi5-pU-gwC"/>
                             <constraint firstItem="X24-nR-HkW" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="XJq-Rf-qt9"/>
+                            <constraint firstItem="TBS-U5-N49" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" id="YNp-f6-zcj"/>
                             <constraint firstItem="a8n-SR-O7z" firstAttribute="width" secondItem="dRC-2T-d7I" secondAttribute="width" priority="999" id="b1v-Vr-63f"/>
+                            <constraint firstItem="q35-aV-wsi" firstAttribute="centerX" secondItem="QXG-AH-Zcm" secondAttribute="centerX" id="fLR-0d-M0I"/>
                             <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="o7V-G7-B2q" secondAttribute="bottom" constant="40" id="glO-O6-AM7">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
                             </constraint>
+                            <constraint firstAttribute="trailing" secondItem="TBS-U5-N49" secondAttribute="trailing" id="mgJ-uc-dGd"/>
                             <constraint firstItem="a8n-SR-O7z" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="mxs-O3-zyw"/>
                             <constraint firstItem="qCG-pD-wTm" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="oRY-7b-xdm"/>
                             <constraint firstItem="uBh-Nb-seq" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="p6y-kU-1Y7"/>
                             <constraint firstItem="o7V-G7-B2q" firstAttribute="centerX" secondItem="8Ly-zq-MLD" secondAttribute="centerX" id="qqG-JI-Cy9"/>
                             <constraint firstItem="2aN-SM-2IN" firstAttribute="height" secondItem="dRC-2T-d7I" secondAttribute="height" priority="999" id="sbT-1h-y0c"/>
+                            <constraint firstItem="TBS-U5-N49" firstAttribute="leading" secondItem="QXG-AH-Zcm" secondAttribute="leading" id="wOS-Lv-Y79"/>
+                            <constraint firstItem="KQZ-mY-S2g" firstAttribute="centerX" secondItem="QXG-AH-Zcm" secondAttribute="centerX" id="zeM-Fd-9f3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pfa-Dm-E9N"/>
                     <connections>
                         <outlet property="answerStackView" destination="5RD-RS-fwe" id="DzG-4X-Wcz"/>
+                        <outlet property="awohButton" destination="q35-aV-wsi" id="gzP-SI-XaY"/>
+                        <outlet property="awohButtonConstraint" destination="fLR-0d-M0I" id="EYP-WI-W2Z"/>
+                        <outlet property="correctTransitionView" destination="TBS-U5-N49" id="buB-Jr-JuS"/>
                         <outlet property="hintLabel" destination="uG4-kq-oFw" id="DZz-F8-7vc"/>
+                        <outlet property="pronunciationButton" destination="VlY-Ak-Xen" id="tcp-dJ-sbj"/>
                         <outlet property="row1StackView" destination="8Ly-zq-MLD" id="5P5-IF-lCw"/>
                         <outlet property="row2StackView" destination="o7V-G7-B2q" id="tvT-gl-u6h"/>
+                        <outlet property="yaadieLabel" destination="KQZ-mY-S2g" id="eeR-Q9-TYn"/>
+                        <outlet property="yaadieLabelConstraint" destination="zeM-Fd-9f3" id="ijz-WT-hsn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEZ-lF-V7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2075.9765625" y="139.84375"/>
+            <point key="canvasLocation" x="2074.4000000000001" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8LO-pV-jKO">
