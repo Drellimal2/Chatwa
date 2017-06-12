@@ -6,5 +6,6 @@ target 'Chatwa iOS' do
   use_frameworks!
 
   # Pods for Chatwa iOS
+  pod 'Alamofire', '~> 4.4' # Alamofire for networking
 
 end

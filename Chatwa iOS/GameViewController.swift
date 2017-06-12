@@ -97,7 +97,7 @@ class GameViewController: UIViewController { // Outlets and overriden functions
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Dispose of any resources that ca be recreated.
     }
 }
 

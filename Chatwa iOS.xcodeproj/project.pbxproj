@@ -18,6 +18,7 @@
 		8A7E13771EE27E940031F8A3 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7E13761EE27E940031F8A3 /* AnswerButton.swift */; };
 		8A7E13791EE27EA40031F8A3 /* GridButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7E13781EE27EA40031F8A3 /* GridButton.swift */; };
 		8A7E137B1EE5F4F10031F8A3 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7E137A1EE5F4F10031F8A3 /* models.swift */; };
+		8A942E031EEE6DAE009CBF3A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A942E021EEE6DAE009CBF3A /* DataManager.swift */; };
 		8ADD89D01ED77B9C0093E432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD89CF1ED77B9C0093E432 /* AppDelegate.swift */; };
 		8ADD89D21ED77B9C0093E432 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD89D11ED77B9C0093E432 /* HomeViewController.swift */; };
 		8ADD89D51ED77B9C0093E432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD89D31ED77B9C0093E432 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		8A7E13761EE27E940031F8A3 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		8A7E13781EE27EA40031F8A3 /* GridButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridButton.swift; sourceTree = "<group>"; };
 		8A7E137A1EE5F4F10031F8A3 /* models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
+		8A942E021EEE6DAE009CBF3A /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8ADD89CC1ED77B9C0093E432 /* Chatwa iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chatwa iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADD89CF1ED77B9C0093E432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ADD89D11ED77B9C0093E432 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 			name = "Custom Views";
 			sourceTree = "<group>";
 		};
+		8A942E041EEE6DB4009CBF3A /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				8A942E021EEE6DAE009CBF3A /* DataManager.swift */,
+			);
+			name = "Data Layer";
+			sourceTree = "<group>";
+		};
 		8ADD89C31ED77B9C0093E432 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 		8ADD89CE1ED77B9C0093E432 /* Chatwa iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8A942E041EEE6DB4009CBF3A /* Data Layer */,
 				8A7E136F1EDFAC010031F8A3 /* Custom Views */,
 				8A7E136A1EDF7C310031F8A3 /* Utils */,
 				8A7E13651EDF7A5C0031F8A3 /* ViewControllers */,
@@ -280,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7E136C1EDF7C400031F8A3 /* Constants.swift in Sources */,
+				8A942E031EEE6DAE009CBF3A /* DataManager.swift in Sources */,
 				8A7E13771EE27E940031F8A3 /* AnswerButton.swift in Sources */,
 				8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */,
 				8ADD89D81ED77B9C0093E432 /* Chatwa_iOS.xcdatamodeld in Sources */,
