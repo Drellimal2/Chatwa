@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        DataManager.shared.getRounds()
     }
 
     override func didReceiveMemoryWarning() {

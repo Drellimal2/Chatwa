@@ -8,22 +8,23 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class DataManager {
     static var shared = DataManager()
     
     let api = API.shared
     
-    func saveRoundsFromJSON(json: Dictionary<String, Any>) {
-        
+    func saveRoundsFromJSON(jsonResult: Any) {
+        let json = JSON(jsonResult)
     }
     
     
     func getRounds() {
         Alamofire.request(api.rounds()).responseJSON { response in
-            if let JSON = response.result.value {
-                debugPrint("Round JSON: \(JSON)")
-                //
+            if let jsonResult = response.result.value {
+                debugPrint("Round JSON: \(jsonResult)")
+                self.saveRoundsFromJSON(jsonResult: jsonResult)
             }
         }
     }

@@ -7,5 +7,6 @@ target 'Chatwa iOS' do
 
   # Pods for Chatwa iOS
   pod 'Alamofire', '~> 4.4' # Alamofire for networking
+  pod 'SwiftyJSON' # For easier JSON parsing
 
 end

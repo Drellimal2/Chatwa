@@ -64,6 +64,6 @@ struct API {
     }
     
     func rounds() -> String {
-        return basePath + "/rounds"
+        return basePath + "rounds"
     }
 }
