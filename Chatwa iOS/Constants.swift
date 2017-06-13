@@ -30,3 +30,40 @@ struct Values {
     static let lettersInRow = 7
     static let correctTransitionViewAlpha = 0.25
 }
+
+
+enum ServerInstance {
+    case local
+    case development
+    case production
+}
+
+
+enum ServerError: Error {
+    case invalidPath
+}
+
+
+struct API {
+    static var shared = API()
+    let localPath = "http://localhost:8000/"
+    let developmentPath = ""
+    let productionPath = ""
+    
+    var basePath:String!
+    
+    mutating func use(instance: ServerInstance) {
+        switch instance {
+        case .local:
+            basePath = localPath
+        case .development:
+            basePath = developmentPath
+        case .production:
+            basePath = productionPath
+        }
+    }
+    
+    func rounds() -> String {
+        return basePath + "/rounds"
+    }
+}

@@ -8,14 +8,4 @@
 
 import Foundation
 
-struct Round {
-    var hint: String!
-    var answer: String!
-    var grid: String!
-    
-    init(hint: String, answer: String, grid: String) {
-        self.hint = hint
-        self.answer = answer
-        self.grid = grid
-    }
-}
+// Declare model classes here
