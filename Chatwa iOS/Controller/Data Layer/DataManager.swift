@@ -16,7 +16,7 @@ class DataManager {
     let api = API.shared
     
     func saveRoundsFromJSON(jsonResult: Any) {
-        let json = JSON(jsonResult)
+        _ = JSON(jsonResult)
     }
     
     
