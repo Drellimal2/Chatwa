@@ -18,10 +18,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         let characters = answer.characters
         let numberOfCharacters = characters.count
         
-        let dimension = self.view.frame.width/CGFloat(numberOfCharacters)
-        debugPrint("Dimension:\(dimension)")
-        
-        for _ in 0...(9 - 1) {
+        for _ in 0...(numberOfCharacters - 1) {
             let answerButton = AnswerButton()
             answerButton.addTarget(self, action: #selector(self.answerButtonClicked(_:)), for: .touchUpInside)
             answerButtons.append(answerButton)

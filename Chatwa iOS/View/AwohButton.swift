@@ -24,8 +24,8 @@ class AwohButton: UIButton {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = .letterColor
-        self.setDefaultCornerRadius()
+        backgroundColor = .letterColor
+        setDefaultCornerRadius()
         clipsToBounds = true
     }
 }

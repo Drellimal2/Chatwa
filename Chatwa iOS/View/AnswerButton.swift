@@ -28,10 +28,10 @@ import UIKit
     }
     
     func setDefaultColor() {
-        self.setTitleColor(.black, for: .normal)
+        setTitleColor(.black, for: .normal)
     }
     
     func setWrongAnswerColor() {
-        self.setTitleColor(.red, for: .normal)
+        setTitleColor(.red, for: .normal)
     }
 }

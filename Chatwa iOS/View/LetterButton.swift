@@ -23,14 +23,21 @@ import UIKit
     }
     
     func setletter(letter: String) {
-        self.titleLabel?.text = letter
+        titleLabel?.text = letter
+    }
+    
+    
+    func setDefaultFont() {
+        titleLabel?.font = UIFont(name: "Chalkboard SE", size: 36)
+        titleLabel?.textAlignment = .center
     }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.isUserInteractionEnabled = true
-        self.backgroundColor = .letterBackground
-        self.setDefaultCornerRadius()
+        isUserInteractionEnabled = true
+        backgroundColor = .letterBackground
+        setDefaultCornerRadius()
+        setDefaultFont()
         clipsToBounds = true
     }
 

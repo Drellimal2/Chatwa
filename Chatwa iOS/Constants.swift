@@ -19,7 +19,7 @@ struct Constants {
     struct DummyData {
         static let hint = "A young boy"
         static let answer = "BWOY"
-        static let grid = "AVBSBSJKOLLYWM"
+        static let grid = "AVBSBSJKOLWY"
     }
     
     struct SegueIdentifiers {
