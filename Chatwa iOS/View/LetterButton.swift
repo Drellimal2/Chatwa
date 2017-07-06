@@ -26,18 +26,11 @@ import UIKit
         titleLabel?.text = letter
     }
     
-    
-    func setDefaultFont() {
-        titleLabel?.font = UIFont(name: "Chalkboard SE", size: 36)
-        titleLabel?.textAlignment = .center
-    }
-    
     override public func layoutSubviews() {
         super.layoutSubviews()
         isUserInteractionEnabled = true
         backgroundColor = .letterBackground
         setDefaultCornerRadius()
-        setDefaultFont()
         clipsToBounds = true
     }
 

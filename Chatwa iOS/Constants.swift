@@ -19,7 +19,7 @@ struct Constants {
     struct DummyData {
         static let hint = "A young boy"
         static let answer = "BWOY"
-        static let grid = "AVBSBSJKOLWY"
+        static let grid = "AVBSBSJKOLWYMK"
     }
     
     struct SegueIdentifiers {
@@ -28,8 +28,8 @@ struct Constants {
     
     struct Values {
         static let defaultRadius = 6
-        static let lettersInRow = 6
-        static let maxLettersInAnswer = 9
+        static let lettersInRow = 7
+        static let maxLettersInAnswer = 11
         static let correctTransitionViewAlpha = 0.25
     }
 }

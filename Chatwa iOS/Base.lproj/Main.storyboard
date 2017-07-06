@@ -170,11 +170,6 @@
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="325" placeholderIntrinsicHeight="50" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-G7-B2q" userLabel="Row 2 StackView">
                                 <rect key="frame" x="44.666666666666657" y="670" width="325" height="50"/>
                             </stackView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBS-U5-N49">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U A REAL YAADIE!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-mY-S2g">
                                 <rect key="frame" x="57.666666666666657" y="89" width="298.66666666666663" height="48.333333333333343"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="34"/>
@@ -205,7 +200,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="TBS-U5-N49" secondAttribute="bottom" id="9Xw-ZH-fZ1"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="top" secondItem="VlY-Ak-Xen" secondAttribute="bottom" constant="30" id="Al1-Ls-Irk">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="10"/>
@@ -225,12 +219,9 @@
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="trailing" secondItem="QXG-AH-Zcm" secondAttribute="trailingMargin" id="TdO-fe-YCG"/>
                             <constraint firstItem="KQZ-mY-S2g" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" constant="25" id="WR8-y4-vhD"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="leading" secondItem="QXG-AH-Zcm" secondAttribute="leadingMargin" id="Wi5-pU-gwC"/>
-                            <constraint firstItem="TBS-U5-N49" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" id="YNp-f6-zcj"/>
                             <constraint firstItem="q35-aV-wsi" firstAttribute="centerX" secondItem="QXG-AH-Zcm" secondAttribute="centerX" id="fLR-0d-M0I"/>
                             <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="o7V-G7-B2q" secondAttribute="bottom" constant="16" id="glO-O6-AM7"/>
-                            <constraint firstAttribute="trailing" secondItem="TBS-U5-N49" secondAttribute="trailing" id="mgJ-uc-dGd"/>
                             <constraint firstItem="o7V-G7-B2q" firstAttribute="centerX" secondItem="8Ly-zq-MLD" secondAttribute="centerX" id="qqG-JI-Cy9"/>
-                            <constraint firstItem="TBS-U5-N49" firstAttribute="leading" secondItem="QXG-AH-Zcm" secondAttribute="leading" id="wOS-Lv-Y79"/>
                             <constraint firstItem="KQZ-mY-S2g" firstAttribute="centerX" secondItem="QXG-AH-Zcm" secondAttribute="centerX" id="zeM-Fd-9f3"/>
                         </constraints>
                     </view>
@@ -239,7 +230,6 @@
                         <outlet property="answerStackView" destination="5RD-RS-fwe" id="DzG-4X-Wcz"/>
                         <outlet property="awohButton" destination="q35-aV-wsi" id="gzP-SI-XaY"/>
                         <outlet property="awohButtonConstraint" destination="fLR-0d-M0I" id="EYP-WI-W2Z"/>
-                        <outlet property="correctTransitionView" destination="TBS-U5-N49" id="buB-Jr-JuS"/>
                         <outlet property="hintLabel" destination="uG4-kq-oFw" id="DZz-F8-7vc"/>
                         <outlet property="pronunciationButton" destination="VlY-Ak-Xen" id="tcp-dJ-sbj"/>
                         <outlet property="row1StackView" destination="8Ly-zq-MLD" id="5P5-IF-lCw"/>

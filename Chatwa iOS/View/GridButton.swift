@@ -10,23 +10,31 @@ import UIKit
 
 @IBDesignable class GridButton: LetterButton {
     
-    override public var intrinsicContentSize: CGSize { // Need to override this to size the button within the StackView
+    var dimension: CGFloat {
         get {
-            // Calculate dimension by using the width of the screen
+            // Calculate dimension by using the smaller of the width/height of the screen
             // - padding(16)
             // - space to be accounted for during spacing of the letters (maxLetters-1 * 5) since there is a spacing of 5 on the stackview
-            let totalSpace = (self.window?.frame.width)! - 16 - CGFloat(((Constants.Values.maxLettersInAnswer - 1) * 5))
-            let dimension = totalSpace/CGFloat(Constants.Values.maxLettersInAnswer)
-            return CGSize(width: dimension, height: dimension)
+            let totalSpace = min((self.window?.frame.width)!, (self.window?.frame.height)!) - 16 - CGFloat(((Constants.Values.lettersInRow - 1) * 5))
+            return totalSpace/CGFloat(Constants.Values.lettersInRow)
         }
     }
+    
+    override public var intrinsicContentSize: CGSize { return CGSize(width: dimension, height: dimension) }// Need to override this to size the button within the StackView return
     
     override func layoutSubviews() {
         super.layoutSubviews()
         setDefaultColor()
+        setDefaultFont()
     }
     
     func setDefaultColor() {
         self.setTitleColor(.letterColor, for: .normal)
+    }
+    
+    func setDefaultFont() {
+        let roundedDimension = CGFloat(Int(dimension) - 5) // Compute a suitable text size
+        titleLabel?.font = UIFont(name: "Chalkboard SE", size: roundedDimension)
+        titleLabel?.textAlignment = .center
     }
 }

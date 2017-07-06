@@ -52,7 +52,7 @@ class GameViewController: UIViewController { // Outlets and overriden functions
             play(player: self.clickSoundPlayer)
         }
     }
-    
+
     // MARK:- IBActions
     
     @IBAction func gridButtonClicked(_ sender: GridButton) {

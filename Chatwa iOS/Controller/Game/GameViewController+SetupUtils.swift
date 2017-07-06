@@ -59,18 +59,18 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
             return
         }
         
-        let pattyContainerView = UIView(frame: CGRect(x: 0, y: 0,width: 130, height: navigationBarHeight))
+        let pattyContainerView = UIView(frame: CGRect(x: 0, y: 0,width: 80, height: navigationBarHeight))
         pattyContainerView.backgroundColor = .pattiesBackground
         pattyContainerView.setDefaultCornerRadius()
         
         let pattyImageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
         pattyImageView.image = UIImage(named: "Patty Icon")
-        pattyImageView.contentMode = .scaleAspectFill
+        pattyImageView.contentMode = .scaleAspectFit
         pattyContainerView.addSubview(pattyImageView)
         
         
-        let pattyCountLabel = UILabel(frame: CGRect(x: 40, y: 0,width: 100, height: navigationBarHeight))
-        pattyCountLabel.text = "9999 Patties"
+        let pattyCountLabel = UILabel(frame: CGRect(x: 40, y: 0,width: 50, height: navigationBarHeight))
+        pattyCountLabel.text = "9999"
         pattyCountLabel.font = UIFont(name: "Chalkboard SE", size: 14)
         pattyCountLabel.textColor = .pattiesLetterColor
         pattyCountLabel.textAlignment = .left
