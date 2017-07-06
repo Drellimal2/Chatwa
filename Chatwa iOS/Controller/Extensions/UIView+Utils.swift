@@ -15,7 +15,7 @@ extension UIView {
     }
     
     func setDefaultCornerRadius() {
-        self.layer.cornerRadius = CGFloat(Values.defaultRadius)
+        self.layer.cornerRadius = CGFloat(Constants.Values.defaultRadius)
     }
     
 }

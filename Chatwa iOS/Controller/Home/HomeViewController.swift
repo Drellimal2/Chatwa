@@ -11,7 +11,9 @@ import AVFoundation
 
 class HomeViewController: UIViewController {
 
-    lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer()
+    lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer() 
+    
+    // MARK:- Lifecycle 
     
     override func viewWillAppear(_ animated: Bool) {
         showNavigationBar(show: false)
@@ -22,14 +24,11 @@ class HomeViewController: UIViewController {
         DataManager.shared.getRounds()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    // MARK:- IBActions
+    
     @IBAction func playButtonClicked(_ sender: Any) {
         play(player: clickSoundPlayer)
-        self.performSegue(withIdentifier: SegueIdentifiers.game, sender: self)
+        self.performSegue(withIdentifier: Constants.SegueIdentifiers.game, sender: self)
     }
 
     @IBAction func instructionsButtonClicked(_ sender: Any) {
@@ -37,19 +36,20 @@ class HomeViewController: UIViewController {
         self.present(buildInstructionsAlertContoller(), animated: true, completion: nil)
     }
     
+    // MARK:- Alert for instructions
+    
     func buildInstructionsAlertContoller() -> UIAlertController{
         
         let alertController = UIAlertController(title: "", message:"", preferredStyle: .alert)
         alertController.view.tintColor = .letterColor // This changes the color of the defined action
         
-        let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default, handler: nil)
-//        let dismissAction = UIAlertAction(title: StaticText.instructionsDismissText, style: .default,handler: { alertAction in self.play(player: self.clickSoundPlayer) })
+        let dismissAction = UIAlertAction(title: Constants.StaticText.instructionsDismissText, style: .default, handler: nil)
        
         alertController.addAction(dismissAction)
         
         
-        alertController.setValue(textInChalboardSEFont(text: StaticText.instructionsTitle as NSString, color: .black, size: 24), forKey: "attributedTitle")
-        alertController.setValue(textInChalboardSEFont(text: StaticText.instructionsMessage as NSString, color: .letterColor, size: 12), forKey: "attributedMessage")
+        alertController.setValue(textInChalboardSEFont(text: Constants.StaticText.instructionsTitle as NSString, color: .black, size: 24), forKey: "attributedTitle")
+        alertController.setValue(textInChalboardSEFont(text: Constants.StaticText.instructionsMessage as NSString, color: .letterColor, size: 12), forKey: "attributedMessage")
         return alertController
     }
 }

@@ -22,8 +22,13 @@ import UIKit
         }
     }
     
+    func setletter(letter: String) {
+        self.titleLabel?.text = letter
+    }
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
+        self.isUserInteractionEnabled = true
         self.backgroundColor = .letterBackground
         self.setDefaultCornerRadius()
         clipsToBounds = true
