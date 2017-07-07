@@ -25,6 +25,9 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     @IBOutlet weak var yaadieLabelConstraint: NSLayoutConstraint!
     @IBOutlet weak var awohButtonConstraint: NSLayoutConstraint!
     
+    var roundLabel: UILabel?
+    var pattyCountLabel: UILabel?
+    
     lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer()
     lazy var awohSoundPlayer: AVAudioPlayer? = self.getAwohSoundPlayer()
     
@@ -47,14 +50,31 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        fetchRound()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if(self.isMovingFromParentViewController) { // Play sound when back button is clicked
             play(player: self.clickSoundPlayer)
+        }
+    }
+    
+    func fetchRound() {
+        let fetchRequest: NSFetchRequest<Round> = Round.fetchRequest()
+        
+        let predicate = NSPredicate(format: "id = %@", round())
+        fetchRequest.predicate = predicate
+        
+        do {
+            let rounds = try context.fetch(fetchRequest)
+            
+            assert(rounds.count == 1)
+            print("Round count: \(rounds.count)")
+        } catch {
+            print(error.localizedDescription)
         }
     }
     

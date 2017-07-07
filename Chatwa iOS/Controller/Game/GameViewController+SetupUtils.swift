@@ -59,28 +59,27 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
             return
         }
         
-        let pattyContainerView = UIView(frame: CGRect(x: 0, y: 0,width: 80, height: navigationBarHeight))
+        let pattyContainerView = UIView(frame: CGRect(x: 0, y: 0,width: navigationBarHeight + 50 + 10, height: navigationBarHeight))
         pattyContainerView.backgroundColor = .pattiesBackground
         pattyContainerView.setDefaultCornerRadius()
         
-        let pattyImageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
+        let pattyImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight))
         pattyImageView.image = UIImage(named: "Patty Icon")
         pattyImageView.contentMode = .scaleAspectFit
         pattyContainerView.addSubview(pattyImageView)
         
         
-        let pattyCountLabel = UILabel(frame: CGRect(x: 40, y: 0,width: 50, height: navigationBarHeight))
-        pattyCountLabel.text = "9999"
-        pattyCountLabel.font = UIFont(name: "Chalkboard SE", size: 14)
-        pattyCountLabel.textColor = .pattiesLetterColor
-        pattyCountLabel.textAlignment = .left
-        pattyContainerView.addSubview(pattyCountLabel)
+        pattyCountLabel = UILabel(frame: CGRect(x: navigationBarHeight + 10, y: 0,width: 50, height: navigationBarHeight))
+        pattyCountLabel?.text = "\(pattyCount())"
+        pattyCountLabel?.font = UIFont(name: "Chalkboard SE", size: 14)
+        pattyCountLabel?.textColor = .pattiesLetterColor
+        pattyCountLabel?.textAlignment = .left
+        pattyContainerView.addSubview(pattyCountLabel!)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pattyContainerView)
     }
     
     func setupTitleImageView() {
-        roundNumber = 0 // TODO: get actual round number
         
         guard let navigationBarHeight = self.navigationBarHeight else {
             return
@@ -91,12 +90,12 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         roundView.backgroundColor = .pattiesBackground
         roundView.setCornerRadius(radius: 20)
         
-        let roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight))
-        roundLabel.text = "\(roundNumber!)"
-        roundLabel.textAlignment = .center
-        roundLabel.font = UIFont(name: "Chalkboard SE", size: 14)
-        roundLabel.textColor = .roundNumberColor
-        roundView.addSubview(roundLabel)
+        roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight))
+        roundLabel?.text = "\(round())"
+        roundLabel?.textAlignment = .center
+        roundLabel?.font = UIFont(name: "Chalkboard SE", size: 14)
+        roundLabel?.textColor = .roundNumberColor
+        roundView.addSubview(roundLabel!)
         
         self.navigationItem.titleView = roundView
     }

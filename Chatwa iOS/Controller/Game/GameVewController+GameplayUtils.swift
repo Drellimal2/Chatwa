@@ -82,6 +82,22 @@ extension GameViewController { // Functions used in Gameplay
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))  // Vibrate device
     }
     
+    func increasePattyCount(by increment: Int) {
+        UserDefaults.standard.set(pattyCount() + increment, forKey: "patties")
+    }
+    
+    func refreshPattyCountLabel() {
+        pattyCountLabel?.text = "\(pattyCount())"
+    }
+    
+    func pattyCount() -> Int {
+        return UserDefaults.standard.integer(forKey: "patties")
+    }
+    
+    func round() -> Int {
+        return UserDefaults.standard.integer(forKey: "round")
+    }
+    
     func animateAppearance() {
         awohButton.isEnabled = false
         

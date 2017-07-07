@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         coreDataStack.autoSave(60)
         
+        if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            UserDefaults.standard.set(0, forKey: "round")
+            UserDefaults.standard.set(10, forKey: "patties")
+        }
+        
         return true
     }
 
