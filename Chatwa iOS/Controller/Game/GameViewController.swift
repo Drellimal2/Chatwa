@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import AVFoundation
 import AudioToolbox
 
@@ -34,6 +35,9 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     var answer: String!
     var roundNumber: Int!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    lazy var context: NSManagedObjectContext = self.appDelegate.coreDataStack.context // MOC
+    
     // MARK:- Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         print("View Setup")
@@ -43,6 +47,7 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
     }
     
@@ -52,7 +57,19 @@ class GameViewController: UIViewController { // Outlets and overriden functions
             play(player: self.clickSoundPlayer)
         }
     }
-
+    
+    func fetchRounds() {
+        let fetchRequest: NSFetchRequest<Round> = Round.fetchRequest()
+        
+        do {
+            let rounds = try context.fetch(fetchRequest)
+            
+            print("Round count: \(rounds.count)")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     // MARK:- IBActions
     
     @IBAction func gridButtonClicked(_ sender: GridButton) {

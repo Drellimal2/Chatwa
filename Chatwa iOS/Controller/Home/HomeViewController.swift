@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataManager.shared.getRounds()
+        DataManager.shared.loadRounds()
     }
 
     // MARK:- IBActions
