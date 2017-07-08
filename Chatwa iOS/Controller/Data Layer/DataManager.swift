@@ -14,13 +14,29 @@ class DataManager {
     static var shared = DataManager()
     
     var ref: DatabaseReference!
+    var rounds = [Round]()
+    var isConnected = false
     
     init() {
         ref = Database.database().reference()
+        
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            self.isConnected = snapshot.value as? Bool ?? false
+        })
     }
     
-    func loadRounds() {
+    func loadRounds(localRounds: [Round], completion: @escaping (Bool) -> ()) {
+        
+        guard isConnected else {
+            completion(false)
+            return
+        }
+        
+        let roundMap = mapIdsToRounds(rounds: localRounds)
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         let _wordsRef = ref.child("words")
         _wordsRef.observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
@@ -32,10 +48,39 @@ class DataManager {
                     let answer = child["answer"] as! String
                     
                     print("\(id) - \(hint) - \(grid) - \(answer)")
-                    _ = Round(id: id, hint: hint, answer: answer, grid: grid, context: appDelegate.coreDataStack.context) // Save the round
+                    
+                    let roundExists = roundMap[id] != nil
+                    
+                    if !roundExists {
+                        _ = Round(id: id, hint: hint, answer: answer, grid: grid, context: appDelegate.coreDataStack.context) // Save the round
+                    } else {
+                        let round = roundMap[id]
+                        if round?.hint != hint {
+                            round?.hint = hint
+                        }
+                        
+                        if round?.grid != grid {
+                            round?.grid = grid
+                        }
+                        
+                        if round?.answer != answer {
+                            round?.answer = answer
+                        }
+                    }
+                    
                 }
             }
+            completion(true)
             
         })
+    }
+    
+    private func mapIdsToRounds(rounds: [Round]) -> [Int: Round] {
+        var roundMap = [Int : Round]()
+        for round in rounds {
+            roundMap[Int(round.id)] = round
+        }
+        
+        return roundMap
     }
 }

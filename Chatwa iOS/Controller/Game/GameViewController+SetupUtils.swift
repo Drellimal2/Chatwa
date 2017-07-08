@@ -12,10 +12,9 @@ import UIKit
 extension GameViewController { // Functions primarily used to setup the Game UI Elements
     
     func loadAnswerAndGrid() { // Initial load of answer and bottom grid
-        hintLabel.text = Constants.DummyData.hint
-        answer = Constants.DummyData.answer
+        hintLabel.text = round!.hint
         
-        let characters = answer.characters
+        let characters = round!.answer!.characters
         let numberOfCharacters = characters.count
         
         for _ in 0...(numberOfCharacters - 1) {
@@ -25,7 +24,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
             answerStackView.addArrangedSubview(answerButton)
         }
         
-        let gridString = Constants.DummyData.grid
+        let gridString = round!.grid!
         
         for index in 0...(Constants.Values.lettersInRow - 1) {
             let row1Button = GridButton()
@@ -71,7 +70,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         
         pattyCountLabel = UILabel(frame: CGRect(x: navigationBarHeight + 10, y: 0,width: 50, height: navigationBarHeight))
         pattyCountLabel?.text = "\(pattyCount())"
-        pattyCountLabel?.font = UIFont(name: "Chalkboard SE", size: 14)
+        pattyCountLabel?.font = UIFont(name: "Chalkboard SE", size: 18)
         pattyCountLabel?.textColor = .pattiesLetterColor
         pattyCountLabel?.textAlignment = .left
         pattyContainerView.addSubview(pattyCountLabel!)
@@ -91,7 +90,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         roundView.setCornerRadius(radius: 20)
         
         roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight))
-        roundLabel?.text = "\(round())"
+        roundLabel?.text = "\(getRoundNumber())"
         roundLabel?.textAlignment = .center
         roundLabel?.font = UIFont(name: "Chalkboard SE", size: 14)
         roundLabel?.textColor = .roundNumberColor
@@ -100,38 +99,10 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         self.navigationItem.titleView = roundView
     }
     
-    func setupPronunciationButton() {
-        pronunciationButton.isHidden = true
-        pronunciationButton.isEnabled = false
-    }
-    
-    // Adjusts the value of the constraint keeping the label in the center of the screenhorizontally
-    // +/- width of the screen based on parameter truthness
-    func setYaadieLabelVisibility(visible: Bool) {
-        yaadieLabel.isHidden = !visible
-        awohButton.isHidden = !visible
-        let f: (NSLayoutConstraint)->Void = visible ? { $0.constant += self.view.bounds.width }: { $0.constant -= self.view.bounds.width }
-        f(yaadieLabelConstraint)
-    }
-    
-    // Adjusts the value of the constraint keeping the button in the center of the screen horizontally
-    // +/- width of the screen based on parameter truthness
-    func setAwohButtonVisibility(visible: Bool) {
-        let f: (NSLayoutConstraint)->Void = visible ? { $0.constant += self.view.bounds.width }: { $0.constant -= self.view.bounds.width }
-        f(awohButtonConstraint)
-    }
-    
-    func setSuccessMessageVisibility(visible: Bool) {
-        setYaadieLabelVisibility(visible: visible)
-        setAwohButtonVisibility(visible: visible)
-    }
-    
     func setup() {
         showNavigationBar()
         navigationBarHeight = self.navigationController?.navigationBar.frame.height
         setupPattyBarButtonItem()
         setupTitleImageView()
-        setupPronunciationButton()
-        setSuccessMessageVisibility(visible: false)
     }
 }

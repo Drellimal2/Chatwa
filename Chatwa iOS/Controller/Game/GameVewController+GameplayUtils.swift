@@ -12,7 +12,7 @@ import AVFoundation
 
 extension GameViewController { // Functions used in Gameplay
     func playClickSound() {
-        play(player: clickSoundPlayer)
+        playAudio(player: clickSoundPlayer)
     }
     
     func hide(button: UIButton) {
@@ -74,7 +74,7 @@ extension GameViewController { // Functions used in Gameplay
             }
         }
         
-        return proposedAnswer == answer
+        return proposedAnswer == round?.answer
     }
     
     func wrongAnswer() {
@@ -86,6 +86,10 @@ extension GameViewController { // Functions used in Gameplay
         UserDefaults.standard.set(pattyCount() + increment, forKey: "patties")
     }
     
+    func nextRound() {
+        UserDefaults.standard.set(getRoundNumber() + 1, forKey: "round")
+    }
+    
     func refreshPattyCountLabel() {
         pattyCountLabel?.text = "\(pattyCount())"
     }
@@ -94,50 +98,16 @@ extension GameViewController { // Functions used in Gameplay
         return UserDefaults.standard.integer(forKey: "patties")
     }
     
-    func round() -> Int {
+    func getRoundNumber() -> Int {
         return UserDefaults.standard.integer(forKey: "round")
     }
     
-    func animateAppearance() {
-        awohButton.isEnabled = false
-        
-        setYaadieLabelVisibility(visible: true)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.layoutIfNeeded()
-        })
-        
-        setAwohButtonVisibility(visible: true)
-        UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: { result in
-            self.awohButton.isEnabled = true
-        })
-    }
-    
-    func animateDisappearance() {
-        awohButton.isEnabled = false
-        
-        setAwohButtonVisibility(visible: false)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.layoutIfNeeded()
-        })
-        
-        setYaadieLabelVisibility(visible: false)
-        UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: { result in
-            self.setAllButtons(enabled: true)
-        })
-    }
     
     func correctAnswer() {
         setAllButtons(enabled: false)
-        setCorrectTransitionViewVisibility(visible: true)
-        animateAppearance()
-    }
-    
-    func setCorrectTransitionViewVisibility(visible: Bool) {
-        correctTransitionView.alpha = visible ? CGFloat(Constants.Values.correctTransitionViewAlpha): 0
+        increasePattyCount(by: 1)
+        nextRound()
+        self.performSegue(withIdentifier: "showSuccess", sender: self)
     }
     
     func setAllButtons(enabled: Bool) {

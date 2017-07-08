@@ -14,77 +14,59 @@ import AudioToolbox
 typealias AnswerIndexToGridIndexMap = [Int: Int]
 
 class GameViewController: UIViewController { // Outlets and overriden functions
-    @IBOutlet weak var correctTransitionView: UIView!
     @IBOutlet weak var hintLabel: UILabel!
-    @IBOutlet weak var pronunciationButton: UIButton!
     @IBOutlet weak var answerStackView: UIStackView!
     @IBOutlet weak var row1StackView: UIStackView!
     @IBOutlet weak var row2StackView: UIStackView!
-    @IBOutlet weak var yaadieLabel: UILabel!
-    @IBOutlet weak var awohButton: UIButton!
-    @IBOutlet weak var yaadieLabelConstraint: NSLayoutConstraint!
-    @IBOutlet weak var awohButtonConstraint: NSLayoutConstraint!
     
     var roundLabel: UILabel?
     var pattyCountLabel: UILabel?
     
     lazy var clickSoundPlayer: AVAudioPlayer? = self.getClickSoundPlayer()
-    lazy var awohSoundPlayer: AVAudioPlayer? = self.getAwohSoundPlayer()
     
     var navigationBarHeight: CGFloat?
     var answerButtons = [AnswerButton]()
     var gridButtons = [GridButton]()
     var answerGridMap = AnswerIndexToGridIndexMap()
-    var answer: String!
+    var round: Round?
     var roundNumber: Int!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var context: NSManagedObjectContext = self.appDelegate.coreDataStack.context // MOC
     
     // MARK:- Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        print("View Setup")
-        setup() // Set up UI Elements and pre game cofiguration
-        loadAnswerAndGrid()
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchRound()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("View Setup")
+        setup() // Set up UI Elements
+        fetchRound()
+        loadAnswerAndGrid()
+        
+    }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if(self.isMovingFromParentViewController) { // Play sound when back button is clicked
-            play(player: self.clickSoundPlayer)
+            playAudio(player: self.clickSoundPlayer)
         }
     }
     
     func fetchRound() {
         let fetchRequest: NSFetchRequest<Round> = Round.fetchRequest()
-        
-        let predicate = NSPredicate(format: "id = %@", round())
+        print(getRoundNumber())
+        let predicate = NSPredicate(format: "id = %@", argumentArray: [getRoundNumber()])
         fetchRequest.predicate = predicate
         
         do {
             let rounds = try context.fetch(fetchRequest)
             
             assert(rounds.count == 1)
-            print("Round count: \(rounds.count)")
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func fetchRounds() {
-        let fetchRequest: NSFetchRequest<Round> = Round.fetchRequest()
-        
-        do {
-            let rounds = try context.fetch(fetchRequest)
-            
-            print("Round count: \(rounds.count)")
+            round = rounds[0]
         } catch {
             print(error.localizedDescription)
         }
@@ -134,13 +116,6 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         
         sender.isUserInteractionEnabled = true
         
-    }
-    
-    @IBAction func pronunciationButtonClicked(_ sender: Any) {
-    }
-    
-    @IBAction func awohButtonClicked(_ sender: Any) {
-        play(player: awohSoundPlayer)
     }
 }
 

@@ -60,7 +60,7 @@ extension UIViewController {
         return nil
     }
     
-    func play(player: AVAudioPlayer?) {
+    func playAudio(player: AVAudioPlayer?) {
         guard let player = player else {
             print("Audio Player is nil!")
             return
