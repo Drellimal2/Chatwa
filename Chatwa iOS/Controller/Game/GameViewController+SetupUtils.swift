@@ -17,6 +17,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         let characters = round!.answer!.characters
         let numberOfCharacters = characters.count
         
+        
         for _ in 0...(numberOfCharacters - 1) {
             let answerButton = AnswerButton()
             answerButton.addTarget(self, action: #selector(self.answerButtonClicked(_:)), for: .touchUpInside)
@@ -90,7 +91,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         roundView.setCornerRadius(radius: 20)
         
         roundLabel = UILabel(frame: CGRect(x: 0, y: 0, width: navigationBarHeight, height: navigationBarHeight))
-        roundLabel?.text = "\(getRoundNumber())"
+        roundLabel?.text = "\(getRoundNumber() + 1)"
         roundLabel?.textAlignment = .center
         roundLabel?.font = UIFont(name: "Chalkboard SE", size: 14)
         roundLabel?.textColor = .roundNumberColor

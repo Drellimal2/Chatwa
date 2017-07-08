@@ -107,7 +107,15 @@ extension GameViewController { // Functions used in Gameplay
         setAllButtons(enabled: false)
         increasePattyCount(by: 1)
         nextRound()
+        tearDown()
         self.performSegue(withIdentifier: "showSuccess", sender: self)
+    }
+    
+    func tearDown() {
+        answerButtons = [AnswerButton]()
+        answerStackView.clear()
+        row1StackView.clear()
+        row2StackView.clear()
     }
     
     func setAllButtons(enabled: Bool) {

@@ -29,7 +29,6 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     var gridButtons = [GridButton]()
     var answerGridMap = AnswerIndexToGridIndexMap()
     var round: Round?
-    var roundNumber: Int!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var context: NSManagedObjectContext = self.appDelegate.coreDataStack.context // MOC
@@ -116,6 +115,14 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         
         sender.isUserInteractionEnabled = true
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSuccess" {
+            let vc = segue.destination as! SuccessViewController
+            vc.hint = round?.hint
+            vc.answer = round?.answer
+        }
     }
 }
 
