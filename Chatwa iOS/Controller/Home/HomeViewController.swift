@@ -37,7 +37,9 @@ class HomeViewController: UIViewController {
             if success {
                 self.performSegue(withIdentifier: Constants.SegueIdentifiers.game, sender: self)
             } else {
-                self.alert(message: "There was an error with your Internet connection. Only previously loaded levels can be played")
+                self.alert(message: "There was an error with your Internet connection. Only previously loaded levels can be played", handler: { action in
+                    self.performSegue(withIdentifier: Constants.SegueIdentifiers.game, sender: self)
+                })
             }
             
         })

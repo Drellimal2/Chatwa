@@ -20,7 +20,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         
         for _ in 0...(numberOfCharacters - 1) {
             let answerButton = AnswerButton()
-            answerButton.addTarget(self, action: #selector(self.answerButtonClicked(_:)), for: .touchUpInside)
+            answerButton.addTarget(self, action: #selector(answerButtonClicked(_:)), for: .touchUpInside)
             answerButtons.append(answerButton)
             answerStackView.addArrangedSubview(answerButton)
         }
@@ -31,8 +31,8 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
             let row1Button = GridButton()
             let row2Button = GridButton()
             
-            row1Button.addTarget(self, action: #selector(self.gridButtonClicked(_:)), for: .touchUpInside)
-            row2Button.addTarget(self, action: #selector(self.gridButtonClicked(_:)), for: .touchUpInside)
+            row1Button.addTarget(self, action: #selector(gridButtonClicked(_:)), for: .touchUpInside)
+            row2Button.addTarget(self, action: #selector(gridButtonClicked(_:)), for: .touchUpInside)
             
             let row1LetterIndex = gridString.index(gridString.startIndex, offsetBy: index)
             let row2LetterIndex = gridString.index(gridString.startIndex, offsetBy: index + Constants.Values.lettersInRow)
@@ -52,11 +52,25 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         
     }
     
-    
-    func setupPattyBarButtonItem() {
-        
-        guard let navigationBarHeight = self.navigationBarHeight else {
+    func setupNavigationBar() {
+        showNavigationBar()
+        navigationBarHeight = navigationController?.navigationBar.frame.height
+        guard let pattyButtonItem = getPattyBarButtonItem(), let shareButtonItem = getSocialShareButton() else {
             return
+        }
+        
+        navigationItem.rightBarButtonItems = [shareButtonItem, pattyButtonItem]
+    }
+    
+    func getSocialShareButton() -> UIBarButtonItem? {
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(askForHelp))
+        return shareButton
+    }
+    
+    func getPattyBarButtonItem() -> UIBarButtonItem? {
+        
+        guard let navigationBarHeight = navigationBarHeight else {
+            return nil
         }
         
         let pattyContainerView = UIView(frame: CGRect(x: 0, y: 0,width: navigationBarHeight + 50 + 10, height: navigationBarHeight))
@@ -76,12 +90,12 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         pattyCountLabel?.textAlignment = .left
         pattyContainerView.addSubview(pattyCountLabel!)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pattyContainerView)
+        return UIBarButtonItem(customView: pattyContainerView)
     }
     
     func setupTitleImageView() {
         
-        guard let navigationBarHeight = self.navigationBarHeight else {
+        guard let navigationBarHeight = navigationBarHeight else {
             return
         }
         
@@ -101,9 +115,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
     }
     
     func setup() {
-        showNavigationBar()
-        navigationBarHeight = self.navigationController?.navigationBar.frame.height
-        setupPattyBarButtonItem()
+        setupNavigationBar()
         setupTitleImageView()
     }
 }

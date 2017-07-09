@@ -18,6 +18,7 @@
 		0A84022A1F0F175F00ED7847 /* Round+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8402281F0F175F00ED7847 /* Round+CoreDataProperties.swift */; };
 		0A84022D1F0F6D0900ED7847 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84022C1F0F6D0900ED7847 /* SuccessViewController.swift */; };
 		0ABDB0721F118F64009C313C /* UIStackView+Clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDB0711F118F64009C313C /* UIStackView+Clear.swift */; };
+		0ABDB0741F11A6BE009C313C /* GameViewController+SocialSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDB0731F11A6BE009C313C /* GameViewController+SocialSharing.swift */; };
 		27877E3D8F6667F0B48DC369 /* Pods_Chatwa_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C83F71223E4B72DB5BC86E /* Pods_Chatwa_iOS.framework */; };
 		8A4BFA661EE65F27007E320F /* AwohButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4BFA651EE65F27007E320F /* AwohButton.swift */; };
 		8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D02431EDF246D00C3765E /* GameViewController.swift */; };
@@ -48,6 +49,7 @@
 		0A8402281F0F175F00ED7847 /* Round+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Round+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0A84022C1F0F6D0900ED7847 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		0ABDB0711F118F64009C313C /* UIStackView+Clear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Clear.swift"; sourceTree = "<group>"; };
+		0ABDB0731F11A6BE009C313C /* GameViewController+SocialSharing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+SocialSharing.swift"; sourceTree = "<group>"; };
 		4645D2301E8F897352598FF0 /* Pods-Chatwa iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatwa iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS.release.xcconfig"; sourceTree = "<group>"; };
 		50045D6D3F535BF3004228B6 /* Pods-Chatwa iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatwa iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatwa iOS/Pods-Chatwa iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		8A4BFA651EE65F27007E320F /* AwohButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwohButton.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				8A5D02431EDF246D00C3765E /* GameViewController.swift */,
 				0A20B7411F0DD53E00659709 /* GameViewController+SetupUtils.swift */,
 				0A20B7431F0DD56100659709 /* GameVewController+GameplayUtils.swift */,
+				0ABDB0731F11A6BE009C313C /* GameViewController+SocialSharing.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 		0A20B7401F0DAD0F00659709 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				0A48BB261F0EF256007CDA28 /* GoogleService-Info.plist */,
 				8ADD89DE1ED77B9C0093E432 /* Info.plist */,
 			);
 			name = "Supporting files";
@@ -233,7 +237,6 @@
 				0A20B7401F0DAD0F00659709 /* Supporting files */,
 				8ADD89CF1ED77B9C0093E432 /* AppDelegate.swift */,
 				8A7E136B1EDF7C400031F8A3 /* Constants.swift */,
-				0A48BB261F0EF256007CDA28 /* GoogleService-Info.plist */,
 				8ADD89D61ED77B9C0093E432 /* ChatwaModel.xcdatamodeld */,
 			);
 			path = "Chatwa iOS";
@@ -384,6 +387,7 @@
 				8A4BFA661EE65F27007E320F /* AwohButton.swift in Sources */,
 				0A48BB291F0F1465007CDA28 /* CoreDataStack.swift in Sources */,
 				0A20B73B1F0DAC4700659709 /* UIView+Utils.swift in Sources */,
+				0ABDB0741F11A6BE009C313C /* GameViewController+SocialSharing.swift in Sources */,
 				8ADD89D21ED77B9C0093E432 /* HomeViewController.swift in Sources */,
 				0A84022A1F0F175F00ED7847 /* Round+CoreDataProperties.swift in Sources */,
 				0A20B7441F0DD56100659709 /* GameVewController+GameplayUtils.swift in Sources */,
