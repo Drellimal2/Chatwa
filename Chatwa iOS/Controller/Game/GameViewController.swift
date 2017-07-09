@@ -11,8 +11,6 @@ import CoreData
 import AVFoundation
 import AudioToolbox
 
-typealias AnswerIndexToGridIndexMap = [Int: Int]
-
 class GameViewController: UIViewController { // Outlets and overriden functions
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var answerStackView: UIStackView!
@@ -71,15 +69,59 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         }
     }
     
+    func gridIndexInAnswerMap(gridIndex: Int) -> AnswerButton? {
+        
+        for (answerIndex, _gridIndex) in answerGridMap {
+            if _gridIndex == gridIndex {
+                return answerButtons[answerIndex]
+            }
+        }
+        return nil
+    }
+    
     func buyLetter() {
-        let position = pickRandomLetterIndex()
-        let row = position < Constants.Values.lettersInRow ? 0: 1
+        let positions = pickRandomLetterIndex()
         
-        let stackIndex = position - row*Constants.Values.lettersInRow
+        let gridIndex = positions.gridIndex
+        let answerIndex = positions.answerIndex
+    
+        // Save the purchsed postions
         
-        let rowStackView = row == 0 ? row1StackView:row2StackView
+        var gridAnswerIndexMap = UserDefaults.standard.object(forKey: "purchasedLetters") as! GridToAnswerIndexMap
+        gridAnswerIndexMap[gridIndex] = answerIndex
+        UserDefaults.standard.set(gridAnswerIndexMap, forKey: "purchasedLetters")
         
+        // Find the two buttons to be used
         
+        let gridButton = gridButtons[gridIndex]
+        let answerButton = answerButtons[answerIndex]
+        
+        // Check if either the answer or gridbuttons are used already and restore to default positions
+        
+        if let existingGridIndex = answerGridMap[answerIndex] { // A grid button exists in the chosen position, remove it
+            let _gridButton = gridButtons[existingGridIndex]
+            setAnswerColorDefault()
+            answerButton.setTitle(nil, for: .normal)
+            answerButton.titleLabel?.text = nil
+            show(button: _gridButton)
+        }
+        
+        if let _answerButton = gridIndexInAnswerMap(gridIndex: gridIndex) { // An aswer button is already using our grid button
+            setAnswerColorDefault()
+            _answerButton.setTitle(nil, for: .normal)
+            _answerButton.titleLabel?.text = nil
+            show(button: gridButton)
+        }
+        
+        // Give user the letter and disable the answerButton
+        let letter = gridButton.titleLabel?.text
+        answerGridMap[answerIndex] = gridIndex
+        
+        answerButton.setTitle(letter, for: .normal)
+        answerButton.disable()
+        hide(button: gridButton)
+        
+        checkAnswer()
     }
     
     // MARK:- IBActions
@@ -115,6 +157,9 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     }
     
     @IBAction func answerButtonClicked(_ sender: AnswerButton) {
+        guard sender.isEnabled else {
+            return
+        }
         sender.isUserInteractionEnabled = false
         let answerIndex = answerStackView.arrangedSubviews.index(of: sender)
         if let gridIndex = answerGridMap[answerIndex!] {

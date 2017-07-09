@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
             UserDefaults.standard.set(0, forKey: "round") // Set the round the user starts at
             UserDefaults.standard.set(10, forKey: "patties") // Set the number of patties a user starts with
-            UserDefaults.standard.set([Int : Int](), forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
+            UserDefaults.standard.set(GridToAnswerIndexMap(), forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
         }
         
         return true

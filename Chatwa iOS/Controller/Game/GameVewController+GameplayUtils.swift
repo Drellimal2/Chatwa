@@ -88,7 +88,7 @@ extension GameViewController { // Functions used in Gameplay
     
     func nextRound() {
         UserDefaults.standard.set(getRoundNumber() + 1, forKey: "round")
-        UserDefaults.standard.set([Int : Int](), forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
+        UserDefaults.standard.set(GridToAnswerIndexMap(), forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
     }
     
     func refreshPattyCountLabel() {
@@ -168,7 +168,36 @@ extension GameViewController { // Functions used in Gameplay
         }
     }
     
-    func pickRandomLetterIndex() -> Int { // Return the index position in the grid of a random letter in the answer
-        return 0
+    func pickRandomLetterIndex() -> GridToAnswerIndex { // Return the index position in the grid of a random letter in the answer and the associated answerIndex
+
+        let answer = round?.answer
+        
+        let gridAnswerIndexMap = UserDefaults.standard.object(forKey: "purchasedLetters") as! GridToAnswerIndexMap
+        
+        var randomIndices = answer?.characters.enumerated().map({ $0.offset })
+        
+        for (_, answerIndex) in gridAnswerIndexMap {
+            randomIndices = randomIndices?.filter({ $0 == answerIndex } )
+        }
+        
+        var randomIndex = Int(arc4random_uniform(UInt32((randomIndices?.count)!)))
+        let randomAnswerIndex = randomIndices?[randomIndex]
+        
+        var randomGridButtons = [Int]()
+        
+        for gridButton in gridButtons {
+            let letter = (gridButton.titleLabel?.text)!
+            
+            let startIndex = answer?.startIndex
+            let answerLetter = String(describing: answer?.index(startIndex!, offsetBy: randomAnswerIndex!))
+            if gridButton.isEnabled,letter == answerLetter { // If the gridbutton is not used in a purchase already and the letter matches the answer letter
+                randomGridButtons.append(gridButtons.index(of: gridButton)!)
+            }
+        }
+        
+        randomIndex = Int(arc4random_uniform(UInt32(randomGridButtons.count)))
+        let randomGridIndex = randomGridButtons[randomIndex]
+        
+        return (gridIndex: randomGridIndex, answerIndex: randomAnswerIndex!)
     }
 }

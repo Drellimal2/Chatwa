@@ -36,6 +36,11 @@ import UIKit
         setTitleColor(.red, for: .normal)
     }
     
+    func disable() {
+        isEnabled = false
+        backgroundColor = .blue
+    }
+    
     func setDefaultFont() {
         let roundedDimension = CGFloat(Int(dimension) - 1) // Compute a suitable text size
         titleLabel?.font = UIFont(name: "Chalkboard SE", size: roundedDimension)
