@@ -66,6 +66,9 @@ The user the taps "AWOH" to proceed to the next level.
 * Grid, Hint and Answer tiles presented properly
 * USer can store screenshots usign action button
 
-## Features to be implemented
+## Features I want to implement after a successful Review
 * In-app purchases of Patties
 * Game center Integration
+
+## Notes
+* To help the reviewer interact with the app properly, Tapping the Patties icon in the top right automatically gives the users 20 Patties. Ideally that button should lead to a section asking the user to get more patties through In-App purchases.
