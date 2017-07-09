@@ -29,16 +29,11 @@ import UIKit
     }
     
     func setDefaultColor() {
-        setTitleColor(.black, for: .normal)
+        setTitleColor(isEnabled ? .black:.white, for: .normal)
     }
     
     func setWrongAnswerColor() {
         setTitleColor(.red, for: .normal)
-    }
-    
-    func disable() {
-        isEnabled = false
-        backgroundColor = .blue
     }
     
     func setDefaultFont() {

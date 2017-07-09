@@ -82,13 +82,22 @@ extension GameViewController { // Functions used in Gameplay
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))  // Vibrate device
     }
     
+    func hasEnoughPatties() -> Bool {
+        let pattyCount = UserDefaults.standard.integer(forKey: "patties")
+        
+        return pattyCount >= Constants.Costs.letterCost
+    }
+    
     func increasePattyCount(by increment: Int) {
         UserDefaults.standard.set(pattyCount() + increment, forKey: "patties")
+        refreshPattyCountLabel()
     }
     
     func nextRound() {
         UserDefaults.standard.set(getRoundNumber() + 1, forKey: "round")
-        UserDefaults.standard.set(GridToAnswerIndexMap(), forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
+        let data = NSKeyedArchiver.archivedData(withRootObject:GridToAnswerIndexMap()) //archiving
+        
+        UserDefaults.standard.set(data, forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
     }
     
     func refreshPattyCountLabel() {
@@ -114,6 +123,7 @@ extension GameViewController { // Functions used in Gameplay
     
     func tearDown() {
         answerButtons = [AnswerButton]()
+        gridButtons = [GridButton]()
         answerStackView.clear()
         row1StackView.clear()
         row2StackView.clear()
@@ -172,12 +182,13 @@ extension GameViewController { // Functions used in Gameplay
 
         let answer = round?.answer
         
-        let gridAnswerIndexMap = UserDefaults.standard.object(forKey: "purchasedLetters") as! GridToAnswerIndexMap
+        let gridAnswerIndexData = UserDefaults.standard.object(forKey: "purchasedLetters") as! Data  //reading
+        let gridAnswerIndexMap = NSKeyedUnarchiver.unarchiveObject(with: gridAnswerIndexData) as! GridToAnswerIndexMap //unarchiving
         
         var randomIndices = answer?.characters.enumerated().map({ $0.offset })
         
         for (_, answerIndex) in gridAnswerIndexMap {
-            randomIndices = randomIndices?.filter({ $0 == answerIndex } )
+            randomIndices = randomIndices?.filter({ $0 != answerIndex } )
         }
         
         var randomIndex = Int(arc4random_uniform(UInt32((randomIndices?.count)!)))
@@ -185,11 +196,12 @@ extension GameViewController { // Functions used in Gameplay
         
         var randomGridButtons = [Int]()
         
+        let startIndex = answer?.startIndex
+        let answerLetter = String(describing: answer![(answer?.index(startIndex!, offsetBy: randomAnswerIndex!))!])
+        
         for gridButton in gridButtons {
             let letter = (gridButton.titleLabel?.text)!
-            
-            let startIndex = answer?.startIndex
-            let answerLetter = String(describing: answer?.index(startIndex!, offsetBy: randomAnswerIndex!))
+    
             if gridButton.isEnabled,letter == answerLetter { // If the gridbutton is not used in a purchase already and the letter matches the answer letter
                 randomGridButtons.append(gridButtons.index(of: gridButton)!)
             }
@@ -199,5 +211,64 @@ extension GameViewController { // Functions used in Gameplay
         let randomGridIndex = randomGridButtons[randomIndex]
         
         return (gridIndex: randomGridIndex, answerIndex: randomAnswerIndex!)
+    }
+    
+    func buyLetter() {
+        
+        guard hasEnoughPatties() else {
+            print("Not enough patties to buy letter")
+            alert(message: "You don't have enough patties, Click the Patty icon in the top right to buy some more.", title: "Oh No!", handler: nil)
+            return
+        }
+        
+        increasePattyCount(by: -Constants.Costs.letterCost)
+        let positions = pickRandomLetterIndex()
+        
+        let gridIndex = positions.gridIndex
+        let answerIndex = positions.answerIndex
+        
+        // Save the purchsed postions
+        
+        let gridAnswerIndexData = UserDefaults.standard.object(forKey: "purchasedLetters") as! Data  //reading
+        var gridAnswerIndexMap = NSKeyedUnarchiver.unarchiveObject(with: gridAnswerIndexData) as! GridToAnswerIndexMap //unarchiving
+        gridAnswerIndexMap[gridIndex] = answerIndex
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: gridAnswerIndexMap) //archiving
+        
+        UserDefaults.standard.set(data, forKey: "purchasedLetters")
+        
+        // Find the two buttons to be used
+        
+        let gridButton = gridButtons[gridIndex]
+        let answerButton = answerButtons[answerIndex]
+        
+        // Check if either the answer or gridbuttons are used already and restore to default positions
+        
+        if let existingGridIndex = answerGridMap[answerIndex] { // A grid button exists in the chosen position, remove it
+            let _gridButton = gridButtons[existingGridIndex]
+            setAnswerColorDefault()
+            answerButton.setTitle(nil, for: .normal)
+            answerButton.titleLabel?.text = nil
+            show(button: _gridButton)
+        }
+        
+        if let _answerButton = gridIndexInAnswerMap(gridIndex: gridIndex) { // An aswer button is already using our grid button
+            setAnswerColorDefault()
+            _answerButton.setTitle(nil, for: .normal)
+            _answerButton.titleLabel?.text = nil
+            show(button: gridButton)
+        }
+        
+        // Give user the letter and disable the answerButton
+        let letter = gridButton.titleLabel?.text
+        answerGridMap[answerIndex] = gridIndex
+        
+        answerButton.setTitle(letter, for: .normal)
+        answerButton.disable()
+        answerButton.backgroundColor = .blue
+        gridButton.disable()
+        hide(button: gridButton)
+        
+        checkAnswer()
     }
 }

@@ -79,51 +79,6 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         return nil
     }
     
-    func buyLetter() {
-        let positions = pickRandomLetterIndex()
-        
-        let gridIndex = positions.gridIndex
-        let answerIndex = positions.answerIndex
-    
-        // Save the purchsed postions
-        
-        var gridAnswerIndexMap = UserDefaults.standard.object(forKey: "purchasedLetters") as! GridToAnswerIndexMap
-        gridAnswerIndexMap[gridIndex] = answerIndex
-        UserDefaults.standard.set(gridAnswerIndexMap, forKey: "purchasedLetters")
-        
-        // Find the two buttons to be used
-        
-        let gridButton = gridButtons[gridIndex]
-        let answerButton = answerButtons[answerIndex]
-        
-        // Check if either the answer or gridbuttons are used already and restore to default positions
-        
-        if let existingGridIndex = answerGridMap[answerIndex] { // A grid button exists in the chosen position, remove it
-            let _gridButton = gridButtons[existingGridIndex]
-            setAnswerColorDefault()
-            answerButton.setTitle(nil, for: .normal)
-            answerButton.titleLabel?.text = nil
-            show(button: _gridButton)
-        }
-        
-        if let _answerButton = gridIndexInAnswerMap(gridIndex: gridIndex) { // An aswer button is already using our grid button
-            setAnswerColorDefault()
-            _answerButton.setTitle(nil, for: .normal)
-            _answerButton.titleLabel?.text = nil
-            show(button: gridButton)
-        }
-        
-        // Give user the letter and disable the answerButton
-        let letter = gridButton.titleLabel?.text
-        answerGridMap[answerIndex] = gridIndex
-        
-        answerButton.setTitle(letter, for: .normal)
-        answerButton.disable()
-        hide(button: gridButton)
-        
-        checkAnswer()
-    }
-    
     // MARK:- IBActions
     
     @IBAction func helpButtonClicked(_ sender: Any) {

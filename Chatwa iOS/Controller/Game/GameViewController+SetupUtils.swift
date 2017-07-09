@@ -17,6 +17,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         let characters = round!.answer!.characters
         let numberOfCharacters = characters.count
         
+        // Load the answer buttons
         
         for _ in 0...(numberOfCharacters - 1) {
             let answerButton = AnswerButton()
@@ -26,6 +27,8 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         }
         
         let gridString = round!.grid!
+        
+        // Load the grid buttons
         
         for index in 0...(Constants.Values.lettersInRow - 1) {
             let row1Button = GridButton()
@@ -50,6 +53,23 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
             gridButtons.append(row2Button)
         }
         
+        
+        // check for purchased letters
+        if let gridAnswerIndexData = UserDefaults.standard.object(forKey: "purchasedLetters") as? Data { //reading
+            let gridAnswerIndexMap = NSKeyedUnarchiver.unarchiveObject(with: gridAnswerIndexData) as! GridToAnswerIndexMap //unarchiving
+            for (gridIndex, answerIndex) in gridAnswerIndexMap {
+                let gridButton = gridButtons[gridIndex]
+                let answerButton = answerButtons[answerIndex]
+                
+                let letter = gridButton.titleLabel?.text
+                answerGridMap[answerIndex] = gridIndex
+                
+                answerButton.setTitle(letter, for: .normal)
+                answerButton.disable()
+                gridButton.disable()
+                hide(button: gridButton)
+            }
+        }
     }
     
     func setupNavigationBar() {

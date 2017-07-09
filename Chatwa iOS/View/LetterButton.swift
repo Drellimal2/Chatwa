@@ -26,10 +26,14 @@ import UIKit
         titleLabel?.text = letter
     }
     
+    func disable() {
+        isEnabled = false
+    }
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
         isUserInteractionEnabled = true
-        backgroundColor = .letterBackground
+        backgroundColor = isEnabled ? .letterBackground:.blue
         setDefaultCornerRadius()
         clipsToBounds = true
     }
