@@ -213,6 +213,10 @@ extension GameViewController { // Functions used in Gameplay
         return (gridIndex: randomGridIndex, answerIndex: randomAnswerIndex!)
     }
     
+    func donatePatties() { // Donate some patties to the user
+        increasePattyCount(by: 20)
+    }
+    
     func buyLetter() {
         
         guard hasEnoughPatties() else {
