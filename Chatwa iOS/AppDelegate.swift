@@ -24,8 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-            UserDefaults.standard.set(0, forKey: "round")
-            UserDefaults.standard.set(10, forKey: "patties")
+            UserDefaults.standard.set(0, forKey: "round") // Set the round the user starts at
+            UserDefaults.standard.set(10, forKey: "patties") // Set the number of patties a user starts with
+            UserDefaults.standard.set([Int : Int](), forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
         }
         
         return true

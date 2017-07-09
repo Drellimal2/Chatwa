@@ -71,7 +71,26 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         }
     }
     
+    func buyLetter() {
+        let position = pickRandomLetterIndex()
+        let row = position < Constants.Values.lettersInRow ? 0: 1
+        
+        let stackIndex = position - row*Constants.Values.lettersInRow
+        
+        let rowStackView = row == 0 ? row1StackView:row2StackView
+        
+        
+    }
+    
     // MARK:- IBActions
+    
+    @IBAction func helpButtonClicked(_ sender: Any) {
+        showHelpAlert(handler: { shouldBuyLetter in
+            if shouldBuyLetter {
+                self.buyLetter()
+            }
+        })
+    }
     
     @IBAction func gridButtonClicked(_ sender: GridButton) {
         playClickSound()
@@ -87,13 +106,7 @@ class GameViewController: UIViewController { // Outlets and overriden functions
                 hide(button: sender)
             }
             
-            if !hasEmptyAnswerSlot() {
-                if isCorrectAnswer() {
-                    correctAnswer()
-                } else {
-                    wrongAnswer()
-                }
-            }
+            checkAnswer()
             
         }
         

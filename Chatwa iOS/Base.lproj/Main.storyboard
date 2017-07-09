@@ -158,6 +158,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="325" placeholderIntrinsicHeight="50" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-G7-B2q" userLabel="Row 2 StackView">
                                 <rect key="frame" x="25" y="601" width="325" height="50"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tui-qU-j2r">
+                                <rect key="frame" x="311" y="72" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Pq-MB-WAW"/>
+                                    <constraint firstAttribute="width" constant="40" id="ddj-BR-Y0e"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="HelpIcon">
+                                    <color key="titleColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="helpButtonClicked:" destination="MbG-KD-AuC" eventType="touchUpInside" id="Six-sw-mhW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -173,7 +186,9 @@
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="leading" secondItem="QXG-AH-Zcm" secondAttribute="leadingMargin" id="Wi5-pU-gwC"/>
                             <constraint firstItem="uG4-kq-oFw" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" constant="80" id="csv-Yz-tFs"/>
                             <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="o7V-G7-B2q" secondAttribute="bottom" constant="16" id="glO-O6-AM7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tui-qU-j2r" secondAttribute="trailing" constant="8" id="pf6-RS-Jey"/>
                             <constraint firstItem="o7V-G7-B2q" firstAttribute="centerX" secondItem="8Ly-zq-MLD" secondAttribute="centerX" id="qqG-JI-Cy9"/>
+                            <constraint firstItem="Tui-qU-j2r" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" constant="8" id="wVM-2l-ZT8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pfa-Dm-E9N"/>
@@ -187,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEZ-lF-V7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949" y="139"/>
+            <point key="canvasLocation" x="1948" y="138.98050974512745"/>
         </scene>
         <!--Success View Controller-->
         <scene sceneID="mtw-EZ-8ju">
@@ -343,6 +358,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HelpIcon" width="64" height="64"/>
         <image name="Patty Icon" width="33" height="23"/>
     </resources>
 </document>

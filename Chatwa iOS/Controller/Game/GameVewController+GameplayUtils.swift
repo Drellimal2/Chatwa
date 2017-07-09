@@ -88,6 +88,7 @@ extension GameViewController { // Functions used in Gameplay
     
     func nextRound() {
         UserDefaults.standard.set(getRoundNumber() + 1, forKey: "round")
+        UserDefaults.standard.set([Int : Int](), forKey: "purchasedLetters") // The letters the user has purchased, upperbound length of Constants.Values.maxLettersInAnswer
     }
     
     func refreshPattyCountLabel() {
@@ -140,5 +141,34 @@ extension GameViewController { // Functions used in Gameplay
             row1Button.isEnabled = enabled
             row2Button.isEnabled = enabled
         }
+    }
+    
+    func showHelpAlert(handler: @escaping (Bool) -> ()) { // Handler parameter is true if the users wants the letter, false otherwise
+        let alertController = UIAlertController(title: "Need help?", message: "Use \(Constants.Costs.letterCost) patties to get a letter in the answer?", preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "Ye Mon!", style: .default, handler: { action in
+            handler(true)
+        })
+        let cancelAction = UIAlertAction(title: "No sah!", style: .default, handler: { action in
+            handler(false)
+        })
+        
+        alertController.addAction(OKAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func checkAnswer() {
+        if !hasEmptyAnswerSlot() {
+            if isCorrectAnswer() {
+                correctAnswer()
+            } else {
+                wrongAnswer()
+            }
+        }
+    }
+    
+    func pickRandomLetterIndex() -> Int { // Return the index position in the grid of a random letter in the answer
+        return 0
     }
 }

@@ -32,4 +32,8 @@ struct Constants {
         static let maxLettersInAnswer = 11
         static let correctTransitionViewAlpha = 0.25
     }
+    
+    struct Costs {
+        static let letterCost = 6
+    }
 }
