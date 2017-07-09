@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 
 class SuccessViewController: UIViewController {
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
 
@@ -27,6 +29,27 @@ class SuccessViewController: UIViewController {
         
         if let answer = answer {
             answerLabel.text = answer
+        }
+    }
+    
+    func generateShareImage() -> UIImage {
+        navigationBar.isHidden = true
+        let shareImage = renderViewToImage()
+        navigationBar.isHidden = false
+        return shareImage
+    }
+    
+    @IBAction func shareSuccess(_ sender: Any) {
+        let activityContoller = UIActivityViewController(activityItems: [generateShareImage()], applicationActivities: nil)
+        self.present(activityContoller, animated: true, completion: nil)
+        
+        activityContoller.completionWithItemsHandler = {(activityType, completed, items, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                self.alert(message: "Could not present options for you to share your success :(", title: "Error sharing")
+            }
+            
         }
     }
     

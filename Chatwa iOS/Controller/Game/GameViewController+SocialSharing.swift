@@ -11,15 +11,6 @@ import UIKit
 
 extension GameViewController {
     
-    func renderViewToImage() -> UIImage {
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        return memedImage
-    }
-    
     func generateShareImage() -> UIImage {
         showNavigationBar(show: false)
         let shareImage = renderViewToImage()
@@ -35,7 +26,7 @@ extension GameViewController {
             
             if let error = error {
                 print(error.localizedDescription)
-                self.alert(message: "Could not present options for you to share your meme :(", title: "Error sharing")
+                self.alert(message: "Could not present options for you to share your to friedns :(", title: "Error sharing")
             }
             
         }

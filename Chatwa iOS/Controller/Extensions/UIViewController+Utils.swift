@@ -20,7 +20,7 @@ extension UIViewController {
     }
     
     func showNavigationBar(show: Bool = true) {
-        self.navigationController?.setNavigationBarHidden(!show, animated: true)
+        navigationController?.setNavigationBarHidden(!show, animated: true)
     }
     
     func textInChalboardSEFont(text: NSString, color: UIColor, size: Int) -> NSMutableAttributedString {
@@ -79,5 +79,14 @@ extension UIViewController {
         
         return NSMutableAttributedString(string: text as String, attributes:systemBoldAttributes)
         
+    }
+    
+    func renderViewToImage() -> UIImage {
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return image
     }
 }

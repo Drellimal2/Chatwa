@@ -202,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UH-Je-otL">
-                                <rect key="frame" x="129.5" y="239" width="116" height="50"/>
+                                <rect key="frame" x="129.5" y="275" width="116" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Patty Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Mra-pr-A4B">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -230,7 +230,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U A REAL YAADIE!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcJ-Iu-yZp">
-                                <rect key="frame" x="38" y="28" width="299" height="48.5"/>
+                                <rect key="frame" x="38" y="64" width="299" height="48.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="34"/>
                                 <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -257,7 +257,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5S-77-z5r">
-                                <rect key="frame" x="0.0" y="84" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Rc9-vL-xmh">
                                         <variation key="heightClass=compact-widthClass=compact" constant="40"/>
@@ -271,7 +271,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANSWER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLd-5n-Zzk">
-                                <rect key="frame" x="114.5" y="172" width="146" height="51"/>
+                                <rect key="frame" x="114.5" y="208" width="146" height="51"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="36"/>
                                 <color key="textColor" red="0.2360577583" green="0.58976167440000005" blue="0.13191848989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -279,6 +279,19 @@
                                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
                                 </variation>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPM-0V-xNJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="YFH-Ku-mtc">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="GlG-TI-PPz">
+                                            <color key="tintColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="shareSuccess:" destination="h9D-cU-niJ" id="qqv-0n-xAo"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -290,15 +303,19 @@
                             <constraint firstAttribute="trailing" secondItem="M5S-77-z5r" secondAttribute="trailing" id="PwI-xK-4nJ"/>
                             <constraint firstItem="nqn-6P-ufA" firstAttribute="centerX" secondItem="OaM-wd-BQ1" secondAttribute="centerX" id="T8j-9i-Nh3"/>
                             <constraint firstItem="5UH-Je-otL" firstAttribute="centerX" secondItem="QLd-5n-Zzk" secondAttribute="centerX" id="XAq-dg-Qdo"/>
-                            <constraint firstItem="VcJ-Iu-yZp" firstAttribute="top" secondItem="vcM-zw-D1C" secondAttribute="bottom" constant="8" id="fzF-5g-lVS"/>
+                            <constraint firstAttribute="trailing" secondItem="fPM-0V-xNJ" secondAttribute="trailing" id="bFO-1Q-zUM"/>
+                            <constraint firstItem="fPM-0V-xNJ" firstAttribute="leading" secondItem="OaM-wd-BQ1" secondAttribute="leading" id="coq-D8-0Gk"/>
                             <constraint firstItem="M5S-77-z5r" firstAttribute="leading" secondItem="OaM-wd-BQ1" secondAttribute="leading" id="oj5-tY-wgX"/>
                             <constraint firstItem="ss1-PA-XI8" firstAttribute="top" secondItem="nqn-6P-ufA" secondAttribute="bottom" constant="20" id="sAt-cX-KUa"/>
                             <constraint firstItem="VcJ-Iu-yZp" firstAttribute="centerX" secondItem="OaM-wd-BQ1" secondAttribute="centerX" id="uEL-ox-geE"/>
+                            <constraint firstItem="fPM-0V-xNJ" firstAttribute="top" secondItem="vcM-zw-D1C" secondAttribute="bottom" id="vrY-Os-wLX"/>
+                            <constraint firstItem="VcJ-Iu-yZp" firstAttribute="top" secondItem="fPM-0V-xNJ" secondAttribute="bottom" id="ybC-am-ePM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="QLd-5n-Zzk" id="QRg-Oy-aVK"/>
                         <outlet property="hintLabel" destination="M5S-77-z5r" id="iYX-o4-k2M"/>
+                        <outlet property="navigationBar" destination="fPM-0V-xNJ" id="Yb9-KS-QdV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94K-TB-yxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
