@@ -40,8 +40,7 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     override func viewWillAppear(_ animated: Bool) {
         print("View Setup")
         setup() // Set up UI Elements
-        fetchRound()
-        loadAnswerAndGrid()
+        fetchRound() // Get the Current Round
         
     }
 
@@ -62,10 +61,19 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         do {
             let rounds = try context.fetch(fetchRequest)
             
-            assert(rounds.count == 1)
-            round = rounds[0]
+            if rounds.count != 1 {
+                alert(message: "There are no preloaded rounds right now, Check back later for more levels.", title: "Oh No!", handler: { action in
+                    self.navigationController?.popViewController(animated: true)
+                })
+            } else {
+                round = rounds[0]
+                loadAnswerAndGrid()
+            }
         } catch {
             print(error.localizedDescription)
+            alert(message: "There was an error getting the information for the level. Please try again later.", title: "Oh No!", handler: { action in
+                self.navigationController?.popViewController(animated: true)
+            })
         }
     }
     
