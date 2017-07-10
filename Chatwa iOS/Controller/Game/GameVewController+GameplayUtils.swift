@@ -91,6 +91,7 @@ extension GameViewController { // Functions used in Gameplay
     func increasePattyCount(by increment: Int) {
         UserDefaults.standard.set(pattyCount() + increment, forKey: "patties")
         refreshPattyCountLabel()
+        pattyStepper.value = Double(pattyCount())
     }
     
     func nextRound() {
@@ -211,10 +212,6 @@ extension GameViewController { // Functions used in Gameplay
         let randomGridIndex = randomGridButtons[randomIndex]
         
         return (gridIndex: randomGridIndex, answerIndex: randomAnswerIndex!)
-    }
-    
-    func donatePatties() { // Donate some patties to the user
-        increasePattyCount(by: 20)
     }
     
     func buyLetter() {
