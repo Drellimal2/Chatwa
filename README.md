@@ -71,4 +71,4 @@ The user the taps "AWOH" to proceed to the next level.
 * Game center Integration
 
 ## Notes
-* To help the reviewer interact with the app properly, Tapping the Patties icon in the top right automatically gives the users 20 Patties. Ideally that button should lead to a section asking the user to get more patties through In-App purchases.
+* To help the reviewer interact with the app properly and also to demonstrate the ability to use a second UIControl a UIStepper has been added to increase/decrease the number of patties.
