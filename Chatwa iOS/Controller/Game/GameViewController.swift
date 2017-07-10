@@ -89,11 +89,13 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     
     // MARK:- IBActions
     
-    @IBAction func helpButtonClicked(_ sender: Any) {
+    @IBAction func helpButtonClicked(_ sender: UIButton) {
+        sender.isEnabled = false
         showHelpAlert(handler: { shouldBuyLetter in
             if shouldBuyLetter {
                 self.buyLetter()
             }
+            sender.isEnabled = true
         })
     }
     
