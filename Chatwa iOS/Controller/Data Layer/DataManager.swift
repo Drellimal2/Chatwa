@@ -19,10 +19,16 @@ class DataManager {
     
     init() {
         ref = Database.database().reference()
+        let wordsRef = ref.child("words")
         
         let connectedRef = Database.database().reference(withPath: ".info/connected")
         connectedRef.observe(.value, with: { snapshot in
             self.isConnected = snapshot.value as? Bool ?? false
+            
+            if !self.isConnected {
+                wordsRef.removeAllObservers()
+            }
+            
         })
     }
     
@@ -71,6 +77,17 @@ class DataManager {
                 }
             }
             completion(true)
+            
+        })
+        
+        let _connectedRef = Database.database().reference(withPath: ".info/connected")
+        _connectedRef.observe(.value, with: { snapshot in
+            let isConnected = snapshot.value as? Bool ?? false
+            
+            if !isConnected {
+                _wordsRef.removeAllObservers()
+                completion(false)
+            }
             
         })
     }

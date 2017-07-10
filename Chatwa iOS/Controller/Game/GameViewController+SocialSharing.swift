@@ -21,9 +21,8 @@ extension GameViewController {
     func askForHelp() {
         let activityContoller = UIActivityViewController(activityItems: [generateShareImage()], applicationActivities: nil)
         self.present(activityContoller, animated: true, completion: nil)
-        tearDown()
+        
         activityContoller.completionWithItemsHandler = {(activityType, completed, items, error) in
-            
             if let error = error {
                 print(error.localizedDescription)
                 self.alert(message: "Could not present options for you to share your to friedns :(", title: "Error sharing")

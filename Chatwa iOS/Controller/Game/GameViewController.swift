@@ -49,6 +49,8 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         super.viewWillDisappear(animated)
         if(self.isMovingFromParentViewController) { // Play sound when back button is clicked
             playAudio(player: self.clickSoundPlayer)
+        } else {
+            self.tearDown()
         }
     }
     
