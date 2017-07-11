@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UC7-TQ-UfR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UC7-TQ-UfR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Bold</string>
+            <string>ChalkboardSE-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -171,17 +177,9 @@
                                     <action selector="helpButtonClicked:" destination="MbG-KD-AuC" eventType="touchUpInside" id="Six-sw-mhW"/>
                                 </connections>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="99999" translatesAutoresizingMaskIntoConstraints="NO" id="M85-Uy-bSs">
-                                <rect key="frame" x="209" y="78" width="94" height="29"/>
-                                <color key="tintColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="pattyStepperValueChanged:" destination="MbG-KD-AuC" eventType="valueChanged" id="qRS-O8-AmZ"/>
-                                </connections>
-                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="M85-Uy-bSs" firstAttribute="centerY" secondItem="Tui-qU-j2r" secondAttribute="centerY" id="7rt-ry-XA0"/>
                             <constraint firstItem="8Ly-zq-MLD" firstAttribute="centerX" secondItem="QXG-AH-Zcm" secondAttribute="centerX" id="CeN-Ri-b9a"/>
                             <constraint firstItem="o7V-G7-B2q" firstAttribute="top" secondItem="8Ly-zq-MLD" secondAttribute="bottom" constant="16" id="GMv-Md-EkQ"/>
                             <constraint firstItem="5RD-RS-fwe" firstAttribute="top" secondItem="uG4-kq-oFw" secondAttribute="bottom" constant="40" id="Kj1-VA-dbw">
@@ -196,7 +194,6 @@
                             <constraint firstItem="CmE-q2-6Z6" firstAttribute="top" secondItem="o7V-G7-B2q" secondAttribute="bottom" constant="16" id="glO-O6-AM7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tui-qU-j2r" secondAttribute="trailing" constant="8" id="pf6-RS-Jey"/>
                             <constraint firstItem="o7V-G7-B2q" firstAttribute="centerX" secondItem="8Ly-zq-MLD" secondAttribute="centerX" id="qqG-JI-Cy9"/>
-                            <constraint firstItem="Tui-qU-j2r" firstAttribute="leading" secondItem="M85-Uy-bSs" secondAttribute="trailing" constant="8" id="vdW-WN-C10"/>
                             <constraint firstItem="Tui-qU-j2r" firstAttribute="top" secondItem="anJ-lH-OHh" secondAttribute="bottom" constant="8" id="wVM-2l-ZT8"/>
                         </constraints>
                     </view>
@@ -204,7 +201,6 @@
                     <connections>
                         <outlet property="answerStackView" destination="5RD-RS-fwe" id="DzG-4X-Wcz"/>
                         <outlet property="hintLabel" destination="uG4-kq-oFw" id="DZz-F8-7vc"/>
-                        <outlet property="pattyStepper" destination="M85-Uy-bSs" id="AuH-gJ-eFt"/>
                         <outlet property="row1StackView" destination="8Ly-zq-MLD" id="5P5-IF-lCw"/>
                         <outlet property="row2StackView" destination="o7V-G7-B2q" id="tvT-gl-u6h"/>
                         <segue destination="h9D-cU-niJ" kind="presentation" identifier="showSuccess" id="gOH-2O-wRh"/>

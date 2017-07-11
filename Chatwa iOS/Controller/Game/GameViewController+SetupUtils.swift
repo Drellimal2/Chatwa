@@ -133,13 +133,8 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         self.navigationItem.titleView = roundView
     }
     
-    func setupPattyStepper() {
-        pattyStepper.value = Double(pattyCount())
-    }
-    
     func setup() {
         setupNavigationBar()
         setupTitleImageView()
-        setupPattyStepper()
     }
 }

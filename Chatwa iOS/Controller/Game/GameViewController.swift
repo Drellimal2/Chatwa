@@ -16,7 +16,6 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     @IBOutlet weak var answerStackView: UIStackView!
     @IBOutlet weak var row1StackView: UIStackView!
     @IBOutlet weak var row2StackView: UIStackView!
-    @IBOutlet weak var pattyStepper: UIStepper!
     
     var roundLabel: UILabel?
     var pattyCountLabel: UILabel?
@@ -92,11 +91,6 @@ class GameViewController: UIViewController { // Outlets and overriden functions
     
     // MARK:- IBActions
     
-    @IBAction func pattyStepperValueChanged(_ sender: UIStepper) {
-        UserDefaults.standard.set(sender.value, forKey: "patties")
-        refreshPattyCountLabel()
-    }
-    
     @IBAction func helpButtonClicked(_ sender: UIButton) {
         sender.isEnabled = false
         showHelpAlert(handler: { shouldBuyLetter in
@@ -107,7 +101,7 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         })
     }
     
-    @IBAction func gridButtonClicked(_ sender: GridButton) {
+    func gridButtonClicked(_ sender: GridButton) {
         playClickSound()
         sender.isUserInteractionEnabled = false
         if hasEmptyAnswerSlot() {
@@ -129,7 +123,7 @@ class GameViewController: UIViewController { // Outlets and overriden functions
         
     }
     
-    @IBAction func answerButtonClicked(_ sender: AnswerButton) {
+    func answerButtonClicked(_ sender: AnswerButton) {
         guard sender.isEnabled else {
             return
         }

@@ -91,7 +91,6 @@ extension GameViewController { // Functions used in Gameplay
     func increasePattyCount(by increment: Int) {
         UserDefaults.standard.set(pattyCount() + increment, forKey: "patties")
         refreshPattyCountLabel()
-        pattyStepper.value = Double(pattyCount())
     }
     
     func nextRound() {
