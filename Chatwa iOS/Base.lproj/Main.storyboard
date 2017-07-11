@@ -210,6 +210,34 @@
             </objects>
             <point key="canvasLocation" x="1948" y="138.98050974512745"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Vq0-mq-uC6">
+            <objects>
+                <viewController storyboardIdentifier="PattyOptionsViewController" id="bhD-zg-dd2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="14x-r9-xtf"/>
+                        <viewControllerLayoutGuide type="bottom" id="CFz-2J-lug"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8wM-RQ-Lov">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Md-s0-HMR">
+                                <rect key="frame" x="145" y="318" width="84" height="30"/>
+                                <state key="normal" title="Hello World!"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Md-s0-HMR" firstAttribute="centerY" secondItem="8wM-RQ-Lov" secondAttribute="centerY" id="Xif-U8-CWL"/>
+                            <constraint firstItem="8Md-s0-HMR" firstAttribute="centerX" secondItem="8wM-RQ-Lov" secondAttribute="centerX" id="Xpx-R8-H1P"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csL-MX-bzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="848.72563718140941"/>
+        </scene>
         <!--Success View Controller-->
         <scene sceneID="mtw-EZ-8ju">
             <objects>

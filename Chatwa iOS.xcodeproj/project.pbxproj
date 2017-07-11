@@ -12,6 +12,7 @@
 		0A20B73B1F0DAC4700659709 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20B73A1F0DAC4700659709 /* UIView+Utils.swift */; };
 		0A20B7421F0DD53F00659709 /* GameViewController+SetupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20B7411F0DD53E00659709 /* GameViewController+SetupUtils.swift */; };
 		0A20B7441F0DD56100659709 /* GameVewController+GameplayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20B7431F0DD56100659709 /* GameVewController+GameplayUtils.swift */; };
+		0A4562911F14557A0011B873 /* GameViewController+PurchaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4562901F14557A0011B873 /* GameViewController+PurchaseUtils.swift */; };
 		0A48BB271F0EF256007CDA28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A48BB261F0EF256007CDA28 /* GoogleService-Info.plist */; };
 		0A48BB291F0F1465007CDA28 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A48BB281F0F1465007CDA28 /* CoreDataStack.swift */; };
 		0A8402291F0F175F00ED7847 /* Round+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8402271F0F175F00ED7847 /* Round+CoreDataClass.swift */; };
@@ -44,6 +45,7 @@
 		0A20B73A1F0DAC4700659709 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		0A20B7411F0DD53E00659709 /* GameViewController+SetupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+SetupUtils.swift"; sourceTree = "<group>"; };
 		0A20B7431F0DD56100659709 /* GameVewController+GameplayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameVewController+GameplayUtils.swift"; sourceTree = "<group>"; };
+		0A4562901F14557A0011B873 /* GameViewController+PurchaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+PurchaseUtils.swift"; sourceTree = "<group>"; };
 		0A48BB261F0EF256007CDA28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A48BB281F0F1465007CDA28 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0A8402271F0F175F00ED7847 /* Round+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Round+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				0A20B7411F0DD53E00659709 /* GameViewController+SetupUtils.swift */,
 				0A20B7431F0DD56100659709 /* GameVewController+GameplayUtils.swift */,
 				0ABDB0731F11A6BE009C313C /* GameViewController+SocialSharing.swift */,
+				0A4562901F14557A0011B873 /* GameViewController+PurchaseUtils.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				8A7E13771EE27E940031F8A3 /* AnswerButton.swift in Sources */,
 				0ABDB0721F118F64009C313C /* UIStackView+Clear.swift in Sources */,
 				8A5D02441EDF246D00C3765E /* GameViewController.swift in Sources */,
+				0A4562911F14557A0011B873 /* GameViewController+PurchaseUtils.swift in Sources */,
 				8ADD89D81ED77B9C0093E432 /* ChatwaModel.xcdatamodeld in Sources */,
 				8A7E13731EE083FB0031F8A3 /* LetterButton.swift in Sources */,
 				8A4BFA661EE65F27007E320F /* AwohButton.swift in Sources */,

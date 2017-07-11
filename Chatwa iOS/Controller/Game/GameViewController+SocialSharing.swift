@@ -2,7 +2,7 @@
 //  GameViewController+SocialSharing.swift
 //  Chatwa iOS
 //
-//  Created by QualityWorks on 7/8/17.
+//  Created by Javon Davis on 7/8/17.
 //  Copyright © 2017 Chatwa. All rights reserved.
 //
 
