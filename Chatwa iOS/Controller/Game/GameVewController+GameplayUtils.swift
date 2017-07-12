@@ -118,7 +118,7 @@ extension GameViewController { // Functions used in Gameplay
         increasePattyCount(by: 1)
         nextRound()
         tearDown()
-        self.performSegue(withIdentifier: "showSuccess", sender: self)
+        performSegue(withIdentifier: "showSuccess", sender: self)
     }
     
     func tearDown() {
@@ -165,7 +165,7 @@ extension GameViewController { // Functions used in Gameplay
         
         alertController.addAction(OKAction)
         alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     func checkAnswer() {

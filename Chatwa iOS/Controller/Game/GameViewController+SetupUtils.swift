@@ -78,7 +78,7 @@ extension GameViewController { // Functions primarily used to setup the Game UI 
         guard let pattyButtonItem = getPattyBarButtonItem(), let shareButtonItem = getSocialShareButton() else {
             return
         }
-        pattyButtonItem.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showPattyPurchaseOption)))
+//        pattyButtonItem.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showPattyPurchaseOption)))
         navigationItem.rightBarButtonItems = [shareButtonItem, pattyButtonItem]
     }
     

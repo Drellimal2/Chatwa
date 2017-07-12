@@ -24,7 +24,10 @@ import UIKit
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setDefaultColor()
+        if self.titleLabel?.textColor != .red {
+            setDefaultColor()
+        }
+        
         setDefaultFont()
     }
     
