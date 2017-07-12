@@ -12,18 +12,22 @@ import UIKit
 extension GameViewController {
     func showPattyPurchaseOption() {
         print("Options")
-        if let popoverContent = self.storyboard?.instantiateViewController(withIdentifier: "PattyOptionsViewController") {
-            let nav = UINavigationController(rootViewController: popoverContent)
-            nav.modalPresentationStyle = .popover
-            let popover = nav.popoverPresentationController
-            popoverContent.preferredContentSize = CGSize(width: 500, height: 600)
-            popover?.delegate = self
-            popover?.sourceView = pattyCountLabel
-            popover?.sourceRect = CGRect(x: 100, y: 100, width: 0, height: 0)
+        if let popoverContent = self.storyboard?.instantiateViewController(withIdentifier: "PattyPurchaseOptionsViewController") as? PattyPurchaseOptionsViewController {
+            let pattyPurchaseNavigationController = UINavigationController(rootViewController: popoverContent)
+            pattyPurchaseNavigationController.modalPresentationStyle = .popover
             
-            self.present(nav, animated: true, completion: nil)
+            let purchasePopover = pattyPurchaseNavigationController.popoverPresentationController
+            popoverContent.preferredContentSize = CGSize(width: 500, height: 320)
+            purchasePopover?.delegate = self
+            purchasePopover?.sourceView = pattyCountLabel
+            
+            self.present(pattyPurchaseNavigationController, animated: true, completion: nil)
         }
         
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
 

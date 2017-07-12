@@ -13,6 +13,9 @@
 		0A20B7421F0DD53F00659709 /* GameViewController+SetupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20B7411F0DD53E00659709 /* GameViewController+SetupUtils.swift */; };
 		0A20B7441F0DD56100659709 /* GameVewController+GameplayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A20B7431F0DD56100659709 /* GameVewController+GameplayUtils.swift */; };
 		0A4562911F14557A0011B873 /* GameViewController+PurchaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4562901F14557A0011B873 /* GameViewController+PurchaseUtils.swift */; };
+		0A4562961F151F4E0011B873 /* PattyPurchaseOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4562951F151F4E0011B873 /* PattyPurchaseOptionsViewController.swift */; };
+		0A4562981F1568F40011B873 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4562971F1568F40011B873 /* StoreKit.framework */; };
+		0A45629A1F156A560011B873 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4562991F156A560011B873 /* IAPHelper.swift */; };
 		0A48BB271F0EF256007CDA28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A48BB261F0EF256007CDA28 /* GoogleService-Info.plist */; };
 		0A48BB291F0F1465007CDA28 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A48BB281F0F1465007CDA28 /* CoreDataStack.swift */; };
 		0A8402291F0F175F00ED7847 /* Round+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8402271F0F175F00ED7847 /* Round+CoreDataClass.swift */; };
@@ -46,6 +49,9 @@
 		0A20B7411F0DD53E00659709 /* GameViewController+SetupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+SetupUtils.swift"; sourceTree = "<group>"; };
 		0A20B7431F0DD56100659709 /* GameVewController+GameplayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameVewController+GameplayUtils.swift"; sourceTree = "<group>"; };
 		0A4562901F14557A0011B873 /* GameViewController+PurchaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+PurchaseUtils.swift"; sourceTree = "<group>"; };
+		0A4562951F151F4E0011B873 /* PattyPurchaseOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PattyPurchaseOptionsViewController.swift; sourceTree = "<group>"; };
+		0A4562971F1568F40011B873 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		0A4562991F156A560011B873 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		0A48BB261F0EF256007CDA28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A48BB281F0F1465007CDA28 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0A8402271F0F175F00ED7847 /* Round+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Round+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27877E3D8F6667F0B48DC369 /* Pods_Chatwa_iOS.framework in Frameworks */,
+				0A4562981F1568F40011B873 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +109,7 @@
 		0A20B7331F0DAAE300659709 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0A4562941F151F240011B873 /* Purchases */,
 				8A942E041EEE6DB4009CBF3A /* Data Layer */,
 				0A20B73C1F0DAC7C00659709 /* Extensions */,
 				0A20B7371F0DABD900659709 /* Game */,
@@ -180,6 +188,15 @@
 			name = "Supporting files";
 			sourceTree = "<group>";
 		};
+		0A4562941F151F240011B873 /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				0A4562951F151F4E0011B873 /* PattyPurchaseOptionsViewController.swift */,
+				0A4562991F156A560011B873 /* IAPHelper.swift */,
+			);
+			path = Purchases;
+			sourceTree = "<group>";
+		};
 		0A84022B1F0F6CEB00ED7847 /* Success */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +268,7 @@
 		F1DC57A3CE5C64F7BD75D4A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A4562971F1568F40011B873 /* StoreKit.framework */,
 				A5C83F71223E4B72DB5BC86E /* Pods_Chatwa_iOS.framework */,
 			);
 			name = Frameworks;
@@ -293,6 +311,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = W52FYE629M;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -401,8 +424,10 @@
 				0A20B7441F0DD56100659709 /* GameVewController+GameplayUtils.swift in Sources */,
 				8ADD89D01ED77B9C0093E432 /* AppDelegate.swift in Sources */,
 				0A8402291F0F175F00ED7847 /* Round+CoreDataClass.swift in Sources */,
+				0A45629A1F156A560011B873 /* IAPHelper.swift in Sources */,
 				0A84022D1F0F6D0900ED7847 /* SuccessViewController.swift in Sources */,
 				0A20B7421F0DD53F00659709 /* GameViewController+SetupUtils.swift in Sources */,
+				0A4562961F151F4E0011B873 /* PattyPurchaseOptionsViewController.swift in Sources */,
 				0A20B7351F0DABB100659709 /* UIViewController+Utils.swift in Sources */,
 				8A7E13791EE27EA40031F8A3 /* GridButton.swift in Sources */,
 				0A20B7391F0DAC0700659709 /* UIColor+Utils.swift in Sources */,
@@ -546,7 +571,7 @@
 				DEVELOPMENT_TEAM = W52FYE629M;
 				INFOPLIST_FILE = "Chatwa iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chatwa.Chatwa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.javon.Chatwa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -560,7 +585,7 @@
 				DEVELOPMENT_TEAM = W52FYE629M;
 				INFOPLIST_FILE = "Chatwa iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chatwa.Chatwa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.javon.Chatwa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

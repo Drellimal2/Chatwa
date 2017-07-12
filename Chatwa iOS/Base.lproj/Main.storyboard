@@ -210,33 +210,92 @@
             </objects>
             <point key="canvasLocation" x="1948" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Vq0-mq-uC6">
+        <!--Patty Purchase Options View Controller-->
+        <scene sceneID="CLh-pc-Paw">
             <objects>
-                <viewController storyboardIdentifier="PattyOptionsViewController" id="bhD-zg-dd2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PattyPurchaseOptionsViewController" automaticallyAdjustsScrollViewInsets="NO" id="cdh-rW-844" customClass="PattyPurchaseOptionsViewController" customModule="Chatwa_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="14x-r9-xtf"/>
-                        <viewControllerLayoutGuide type="bottom" id="CFz-2J-lug"/>
+                        <viewControllerLayoutGuide type="top" id="Txw-Ia-xyb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Aov-KO-MJH"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8wM-RQ-Lov">
+                    <view key="view" contentMode="scaleToFill" id="Cxy-c3-wBb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Md-s0-HMR">
-                                <rect key="frame" x="145" y="318" width="84" height="30"/>
-                                <state key="normal" title="Hello World!"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need more Patties? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kww-33-3S6">
+                                <rect key="frame" x="43" y="20" width="289" height="42.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Ao-Yw-v4i">
+                                <rect key="frame" x="0.0" y="70.5" width="375" height="534.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PattyPurchaseOptionCell" textLabel="bSi-BC-ePC" detailTextLabel="cni-Oo-Wpj" imageView="Ykp-Dh-oSa" style="IBUITableViewCellStyleValue1" id="jv7-FJ-g4z">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jv7-FJ-g4z" id="FLy-0S-pup">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bSi-BC-ePC">
+                                                    <rect key="frame" x="63" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cni-Oo-Wpj">
+                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Patty Icon" id="Ykp-Dh-oSa">
+                                                    <rect key="frame" x="15" y="10" width="33" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cdh-rW-844" id="hAx-Nu-vJH"/>
+                                    <outlet property="delegate" destination="cdh-rW-844" id="nH3-LU-E4Z"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oP-gy-1VG">
+                                <rect key="frame" x="146" y="601" width="83" height="46"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <state key="normal" title="No Sah!">
+                                    <color key="titleColor" red="0.25098039220000001" green="0.70196078429999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissController:" destination="cdh-rW-844" eventType="touchUpInside" id="h2a-Dt-UKj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8Md-s0-HMR" firstAttribute="centerY" secondItem="8wM-RQ-Lov" secondAttribute="centerY" id="Xif-U8-CWL"/>
-                            <constraint firstItem="8Md-s0-HMR" firstAttribute="centerX" secondItem="8wM-RQ-Lov" secondAttribute="centerX" id="Xpx-R8-H1P"/>
+                            <constraint firstAttribute="trailing" secondItem="6Ao-Yw-v4i" secondAttribute="trailing" id="2Cn-n2-OVq"/>
+                            <constraint firstItem="6Ao-Yw-v4i" firstAttribute="leading" secondItem="Cxy-c3-wBb" secondAttribute="leading" id="7dR-mF-pCB"/>
+                            <constraint firstItem="Kww-33-3S6" firstAttribute="centerX" secondItem="Cxy-c3-wBb" secondAttribute="centerX" id="AJ7-7K-MXF"/>
+                            <constraint firstItem="Kww-33-3S6" firstAttribute="top" secondItem="Txw-Ia-xyb" secondAttribute="bottom" id="fJA-yj-xyN"/>
+                            <constraint firstItem="6Ao-Yw-v4i" firstAttribute="top" secondItem="Kww-33-3S6" secondAttribute="bottom" constant="8" id="mE0-23-6LY"/>
+                            <constraint firstItem="Aov-KO-MJH" firstAttribute="top" secondItem="4oP-gy-1VG" secondAttribute="bottom" constant="20" id="mm2-9g-EkT"/>
+                            <constraint firstItem="4oP-gy-1VG" firstAttribute="centerX" secondItem="Cxy-c3-wBb" secondAttribute="centerX" id="t2o-Fa-0Mf"/>
+                            <constraint firstItem="4oP-gy-1VG" firstAttribute="top" secondItem="6Ao-Yw-v4i" secondAttribute="bottom" constant="-4" id="yeR-hK-mXt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="purchaseOptionsTableView" destination="6Ao-Yw-v4i" id="mGk-fS-wXK"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="csL-MX-bzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-Rc-s43" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="848.72563718140941"/>
+            <point key="canvasLocation" x="1948" y="840"/>
         </scene>
         <!--Success View Controller-->
         <scene sceneID="mtw-EZ-8ju">
